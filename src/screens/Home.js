@@ -19,6 +19,7 @@ import VideoSlider from '../components/Home/VideoSlider';
 import OfferSlider from '../components/Home/OfferSlider';
 
 import Font from '../theme/Font';
+import CouponCard from '../components/Home/CouponCard';
 function Home() {
   return (
     <SafeAreaView style={styles.container}>
@@ -127,15 +128,7 @@ function Home() {
             <View>
               <VideoSlider />
             </View>
-            <View
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <View style={styles.adsBanner}>
-                <Text>ads Page</Text>
-              </View>
-            </View>
+            <CouponCard />
           </View>
         </View>
       </ScrollView>
@@ -167,14 +160,6 @@ const styles = StyleSheet.create({
   offerBanner: {
     width: wp('95%'),
     height: hp('25%'),
-    backgroundColor: Colors.peru,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  adsBanner: {
-    width: wp('90%'),
-    height: hp('15%'),
     backgroundColor: Colors.peru,
     justifyContent: 'center',
     alignItems: 'center',

@@ -38,7 +38,11 @@ const ProductSliderItem = props => {
         </View>
       </View>
       <View>
-        <Image style={styles.image} source={item?.image} />
+        <Image
+          resizeMode={'contain'}
+          style={styles.image}
+          source={item?.image}
+        />
       </View>
       <View>
         <Text style={styles.title}>Adidas Shoes</Text>
