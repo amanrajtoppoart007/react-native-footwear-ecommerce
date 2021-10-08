@@ -1,12 +1,9 @@
 import React from 'react';
 import {FlatList, View} from 'react-native';
 import Item from './Item';
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from 'react-native-responsive-screen';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
-function Slider() {
+function BrandSlider() {
   const brands = [
     {
       id: 'brand-slider-item-one',
@@ -37,7 +34,9 @@ function Slider() {
       {brands && (
         <View style={{marginVertical: 10}}>
           <FlatList
-            style={{width: wp('95%'), height: hp('45%')}}
+            style={{
+              width: wp('95%'),
+            }}
             showsHorizontalScrollIndicator={false}
             initialNumToRender={4}
             horizontal={true}
@@ -51,4 +50,4 @@ function Slider() {
   );
 }
 
-export default Slider;
+export default BrandSlider;

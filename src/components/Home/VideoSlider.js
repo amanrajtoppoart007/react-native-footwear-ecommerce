@@ -1,10 +1,11 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, Image, StyleSheet, View} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import VideoSliderItem from './VideoSliderItem';
+import Colors from '../../theme/Colors';
 
 function VideoSlider() {
   const videos = [
@@ -27,6 +28,15 @@ function VideoSlider() {
       id: 'seller-slider-item-six',
     },
   ];
+
+  const renderItem = ({item}) => (
+    <View style={styles.card}>
+      <Image
+        style={{width: '100%', height: '100%'}}
+        source={require('../../assets/images/temp/video-image.png')}
+      />
+    </View>
+  );
   return (
     <>
       {videos && (
@@ -38,12 +48,23 @@ function VideoSlider() {
             horizontal={true}
             keyExtractor={item => item?.id?.toString()}
             data={videos}
-            renderItem={VideoSliderItem}
+            renderItem={renderItem}
           />
         </View>
       )}
     </>
   );
 }
+const styles = StyleSheet.create({
+  card: {
+    width: wp('95%'),
+    height: hp('30%'),
+    backgroundColor: Colors.background,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    marginHorizontal: 3,
+  },
+});
 
 export default VideoSlider;

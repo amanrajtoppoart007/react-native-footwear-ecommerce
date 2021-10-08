@@ -1,13 +1,16 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import Colors from '../../../theme/Colors';
+
 const Item = props => {
   const {item} = props;
   return (
     <View style={styles.card}>
       <ImageBackground
         style={styles.image}
-        resizeMode={'contain'}
+        imageStyle={{borderRadius: 10}}
+        resizeMode={'cover'}
         source={item?.image}
       />
     </View>
@@ -16,14 +19,15 @@ const Item = props => {
 
 const styles = StyleSheet.create({
   card: {
-    width: wp('20%'),
-    height: 100,
+    width: wp('25%'),
+    height: 80,
     borderRadius: 8,
+    marginHorizontal: 8,
+    backgroundColor: Colors.transparent,
   },
   image: {
-    width: wp('20%'),
-    height: 100,
-    borderRadius: 8,
+    width: wp('25%'),
+    height: 80,
   },
 });
 

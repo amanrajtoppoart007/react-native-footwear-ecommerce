@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import {Rating, AirbnbRating} from 'react-native-elements';
+import {Rating} from 'react-native-elements';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -18,7 +18,10 @@ function SellerSliderItem() {
       <View style={styles.rowCard}>
         <View style={{marginHorizontal: 3}}>
           <Text style={styles.brandName}>AS</Text>
-          <Image source={require('../../assets/icons/category.png')} />
+          <Image
+            style={{width: 44, height: 38.79}}
+            source={require('../../assets/icons/shoe-icon.png')}
+          />
         </View>
         <View style={{marginHorizontal: 3}}>
           <View>
