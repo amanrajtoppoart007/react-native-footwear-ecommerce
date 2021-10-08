@@ -1,9 +1,5 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
 import Colors from '../theme/Colors';
 import SellerSlider from '../components/Home/SellerSlider';
 import ProductSlider from '../components/Home/ProductSlider';
@@ -51,7 +47,9 @@ function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.green,
+    backgroundColor: Colors.background,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   contentWrapper: {
     justifyContent: 'center',
