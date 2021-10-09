@@ -9,6 +9,8 @@ import CouponCard from '../components/Home/CouponCard';
 import BrandSlider from '../components/Home/Brand/BrandSlider';
 import TopSellerSlider from '../components/Home/TopSeller/TopSellerSlider';
 import AdBanner from '../components/Home/AdBanner';
+import Heading from '../components/Home/Heading';
+
 function Home() {
   return (
     <SafeAreaView style={styles.container}>
@@ -22,19 +24,44 @@ function Home() {
               <OfferSlider />
             </View>
             <View>
+              <Heading
+                image={require('../assets/icons/re-seller.png')}
+                title={'Near By Reseller'}
+                onPress={() => {}}
+              />
               <SellerSlider />
             </View>
             <View>
+              <Heading
+                image={require('../assets/icons/box.png')}
+                title={'New Release'}
+                onPress={() => {}}
+              />
               <ProductSlider />
             </View>
             <View>
+              <Heading
+                image={require('../assets/icons/video.png')}
+                title={'Video'}
+                onPress={() => {}}
+              />
               <VideoSlider />
             </View>
             <CouponCard />
             <View>
+              <Heading
+                image={require('../assets/icons/store.png')}
+                title={'Stores'}
+                onPress={() => {}}
+              />
               <BrandSlider />
             </View>
             <View>
+              <Heading
+                image={require('../assets/icons/special.png')}
+                title={'Top Selling Reseller'}
+                onPress={() => {}}
+              />
               <TopSellerSlider />
             </View>
           </View>

@@ -7,21 +7,27 @@ function OfferSlider() {
   const offers = [
     {
       id: 'offer-slider-item-one',
+      backgroundColor: 'rgba(225,131,69,0.7)',
     },
     {
       id: 'offer-slider-item-two',
+      backgroundColor: 'rgba(110, 99, 53, 0.7)',
     },
     {
       id: 'offer-slider-item-three',
+      backgroundColor: 'rgba(236, 79, 60, 0.7)',
     },
     {
       id: 'offer-slider-item-four',
+      backgroundColor: 'rgba(225,131,69,0.7)',
     },
     {
       id: 'offer-slider-item-five',
+      backgroundColor: 'rgba(110, 99, 53, 0.7)',
     },
     {
       id: 'offer-slider-item-six',
+      backgroundColor: 'rgba(236, 79, 60, 0.7)',
     },
   ];
 

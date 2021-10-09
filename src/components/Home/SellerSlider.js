@@ -10,29 +10,35 @@ function SellerSlider() {
   const sellerList = [
     {
       id: 'seller-slider-item-one',
+      backgroundColor: 'rgba(225,131,69,0.7)',
     },
     {
       id: 'seller-slider-item-two',
+      backgroundColor: 'rgba(80,71,33,0.7)',
     },
     {
       id: 'seller-slider-item-three',
+      backgroundColor: 'rgba(236, 79, 60, 0.7)',
     },
     {
       id: 'seller-slider-item-four',
+      backgroundColor: 'rgba(225,131,69,0.7)',
     },
     {
       id: 'seller-slider-item-five',
+      backgroundColor: 'rgba(110, 99, 53, 0.7)',
     },
     {
       id: 'seller-slider-item-six',
+      backgroundColor: 'rgba(236, 79, 60, 0.7)',
     },
   ];
   return (
     <>
       {sellerList && (
-        <View style={{marginVertical: 10}}>
+        <View style={{marginVertical: 5, marginBottom: 20}}>
           <FlatList
-            style={{width: wp('95%'), height: hp('25%')}}
+            style={{width: wp('95%')}}
             showsHorizontalScrollIndicator={false}
             initialNumToRender={3}
             horizontal={true}
