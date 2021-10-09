@@ -10,27 +10,27 @@ function ProductSlider() {
   const products = [
     {
       id: 'product-slider-item-one',
-      image: require('../../assets/images/temp/shoes/shoe-a.png'),
+      image: require('../../assets/images/shoes/image-one.png'),
     },
     {
       id: 'product-slider-item-two',
-      image: require('../../assets/images/temp/shoes/shoe-b.png'),
+      image: require('../../assets/images/shoes/image-two.png'),
     },
     {
       id: 'product-slider-item-three',
-      image: require('../../assets/images/temp/shoes/shoe-c.png'),
+      image: require('../../assets/images/shoes/image-three.png'),
     },
     {
       id: 'product-slider-item-four',
-      image: require('../../assets/images/temp/shoes/shoe-a.png'),
+      image: require('../../assets/images/shoes/image-one.png'),
     },
     {
       id: 'product-slider-item-five',
-      image: require('../../assets/images/temp/shoes/shoe-b.png'),
+      image: require('../../assets/images/shoes/image-two.png'),
     },
     {
       id: 'product-slider-item-six',
-      image: require('../../assets/images/temp/shoes/shoe-c.png'),
+      image: require('../../assets/images/shoes/image-three.png'),
     },
   ];
   const renderItem = ({item}) => <ProductSliderItem item={item} />;

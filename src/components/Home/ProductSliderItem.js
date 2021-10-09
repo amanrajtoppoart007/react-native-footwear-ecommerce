@@ -1,21 +1,17 @@
 import React, {useState} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Icon, Rating} from 'react-native-elements';
+import {Icon} from 'react-native-elements';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import Colors from '../../theme/Colors';
 import Font from '../../theme/Font';
+import StarRating from '../StarRating';
 
 const ProductSliderItem = props => {
   const {item} = props;
   const [liked, setLiked] = useState(false);
-
-  const ratingCompleted = rating => {
-    console.log('Rating is: ' + rating);
-  };
-
   return (
     <View style={styles.card}>
       <View style={styles.rowCard}>
@@ -48,24 +44,23 @@ const ProductSliderItem = props => {
         <Text style={styles.title}>Adidas Shoes</Text>
       </View>
       <View>
-        <Rating
-          readOnly
-          imageSize={15}
-          ratingColor={'#f1c40f'}
-          tintColor={Colors.white}
-          ratingBackgroundColor={Colors.peru}
-          onFinishRating={ratingCompleted}
-          style={{paddingVertical: 10}}
-        />
+        <View style={styles.ratingContainer}>
+          <View>
+            <StarRating rating={4} />
+          </View>
+          <View style={{marginHorizontal: 5}}>
+            <Text>4.0</Text>
+          </View>
+        </View>
       </View>
       <View style={styles.footer}>
-        <View style={{marginHorizontal: 3}}>
+        <View>
           <Image
-            style={{width: 15, height: 15}}
+            style={{width: 7, height: 7}}
             source={require('../../assets/icons/category-inverted.png')}
           />
         </View>
-        <View style={{marginHorizontal: 3}}>
+        <View style={{marginHorizontal: 5}}>
           <Text style={styles.category}>Casual Shoes</Text>
         </View>
       </View>
@@ -76,7 +71,7 @@ const ProductSliderItem = props => {
 const styles = StyleSheet.create({
   card: {
     width: wp('40%'),
-    height: hp('40%'),
+    height: hp('35%'),
     backgroundColor: Colors.background,
     borderRadius: 10,
     marginHorizontal: 3,
@@ -89,35 +84,40 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   time: {
-    fontFamily: Font.RobotoBold,
+    fontFamily: Font.PoppinsMedium,
     color: Colors.black,
-    fontSize: 15,
+    fontSize: 9,
     textDecorationLine: 'underline',
   },
   date: {
-    fontFamily: Font.RobotoBold,
+    fontFamily: Font.PoppinsMedium,
     color: Colors.black,
-    fontSize: 18,
+    fontSize: 10,
   },
   image: {
     width: 100,
     height: 100,
   },
   title: {
-    fontFamily: Font.RobotoBold,
+    fontFamily: Font.PoppinsRegular,
     color: Colors.black,
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 13,
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   footer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    marginVertical: 5,
   },
   category: {
-    fontFamily: Font.RobotoBold,
+    fontFamily: Font.PoppinsRegular,
     color: Colors.black,
-    fontSize: 15,
+    fontSize: 9,
   },
 });
 

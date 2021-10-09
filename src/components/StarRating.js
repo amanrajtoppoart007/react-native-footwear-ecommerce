@@ -35,8 +35,8 @@ function StarRating({rating}) {
             <Icon
               type={'font-awesome'}
               size={12}
-              name={index <= rating ? 'star' : 'star-o'}
-              color={index <= rating ? '#F7C000' : 'white'}
+              name={index < rating ? 'star' : 'star-o'}
+              color={'#F7C000'}
             />
           </View>
         );
