@@ -40,9 +40,9 @@ function VideoSlider() {
   return (
     <>
       {videos && (
-        <View style={{marginVertical: 10}}>
+        <View>
           <FlatList
-            style={{width: wp('95%'), height: hp('30%')}}
+            style={{width: wp('95%')}}
             showsHorizontalScrollIndicator={false}
             initialNumToRender={3}
             horizontal={true}

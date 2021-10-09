@@ -6,7 +6,7 @@ import ProductSlider from '../components/Home/ProductSlider';
 import VideoSlider from '../components/Home/VideoSlider';
 import OfferSlider from '../components/Home/OfferSlider';
 import CouponCard from '../components/Home/CouponCard';
-import BrandSlider from '../components/Home/Brand/BrandSlider';
+import BrandSlider from '../components/Home/BrandSlider';
 import TopSellerSlider from '../components/Home/TopSeller/TopSellerSlider';
 import AdBanner from '../components/Home/AdBanner';
 import Heading from '../components/Home/Heading';
@@ -47,7 +47,9 @@ function Home() {
               />
               <VideoSlider />
             </View>
-            <CouponCard />
+            <View style={{marginVertical: 12}}>
+              <CouponCard />
+            </View>
             <View>
               <Heading
                 image={require('../assets/icons/store.png')}
