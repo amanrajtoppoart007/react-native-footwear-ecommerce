@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 import Home from '../screens/Home';
+import Seller from '../screens/Seller';
 import Profile from '../screens/Profile';
 import WishList from '../screens/WishList';
 import Search from '../screens/Search';
@@ -14,7 +15,7 @@ function TabNavigator() {
     <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={Seller}
         tabBarShowLabel={false}
         options={{
           headerShown: false,

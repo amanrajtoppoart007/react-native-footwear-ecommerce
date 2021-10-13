@@ -7,9 +7,9 @@ import VideoSlider from '../components/Home/VideoSlider';
 import OfferSlider from '../components/Home/OfferSlider';
 import CouponCard from '../components/Home/CouponCard';
 import BrandSlider from '../components/Home/BrandSlider';
-import TopSellerSlider from '../components/Home/TopSeller/TopSellerSlider';
+import TopSellerSlider from '../components/Home/TopSellerSlider';
 import AdBanner from '../components/Home/AdBanner';
-import Heading from '../components/Home/Heading';
+import Heading from '../components/Heading';
 
 function Home() {
   return (
@@ -65,6 +65,14 @@ function Home() {
                 onPress={() => {}}
               />
               <TopSellerSlider />
+            </View>
+            <View style={{marginVertical: 8}}>
+              <Heading
+                image={require('../assets/icons/special.png')}
+                title={'Trending Seller'}
+                onPress={() => {}}
+              />
+              <SellerSlider />
             </View>
           </View>
         </View>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import Font from '../../theme/Font';
-import Colors from '../../theme/Colors';
+import Font from '../theme/Font';
+import Colors from '../theme/Colors';
 import {Icon} from 'react-native-elements';
 
 function Heading({image, title, onPress}) {
