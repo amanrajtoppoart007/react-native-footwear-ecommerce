@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 
-function StarRating({rating}) {
+function StarRating({size, rating}) {
   const stars = [
     {
       id: 'star-key-one',
@@ -34,7 +34,7 @@ function StarRating({rating}) {
             style={{marginHorizontal: 1}}>
             <Icon
               type={'font-awesome'}
-              size={12}
+              size={size ? size : 12}
               name={index < rating ? 'star' : 'star-o'}
               color={'#F7C000'}
             />

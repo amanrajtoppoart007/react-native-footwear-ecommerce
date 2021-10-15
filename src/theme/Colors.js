@@ -2,7 +2,7 @@ export default {
   primary: '#000000',
   primaryLight: '#1BECCF',
   textColor: '#CEA245',
-  background: '#FFFFFF',
+  background: '#FBFBFB',
   secondary: '#A48800',
   peru: '#CCA145',
   white: '#ffffff',

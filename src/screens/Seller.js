@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -11,8 +11,8 @@ import VideoSlider from '../components/Seller/VideoSlider';
 import CategorySlider from '../components/Seller/CategorySlider';
 import SizeSlider from '../components/Seller/SizeSlider';
 import TrendingProduct from '../components/Seller/TrendingProduct';
-import LinearGradient from 'react-native-linear-gradient';
 import Banner from '../components/Seller/Banner';
+import ReviewSection from '../components/Seller/ReviewSection';
 
 function Seller() {
   return (
@@ -57,6 +57,9 @@ function Seller() {
                 image={require('../assets/icons/video.png')}
               />
               <TrendingProduct />
+            </View>
+            <View>
+              <ReviewSection />
             </View>
           </View>
         </View>
