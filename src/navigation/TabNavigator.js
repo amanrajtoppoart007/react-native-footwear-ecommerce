@@ -13,11 +13,27 @@ import TabBar from '../components/TabBar';
 function TabNavigator() {
   return (
     <Tab.Navigator tabBar={props => <TabBar {...props} />}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="WishList" component={WishList} />
-      <Tab.Screen name="OrderList" component={OrderList} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="WishList"
+        component={WishList}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="OrderList"
+        component={OrderList}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerShown: false}}
+      />
     </Tab.Navigator>
   );
 }

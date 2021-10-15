@@ -1,14 +1,13 @@
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {NavigationContainer} from '@react-navigation/native';
 import CustomTheme from './src/theme/CustomTheme';
-import AuthNavigator from './src/navigation/AuthNavigator';
-import TabNavigator from './src/navigation/TabNavigator';
+import AppNavigator from './src/navigation/AppNavigator';
 function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={CustomTheme}>
-        <TabNavigator />
+        <AppNavigator />
       </NavigationContainer>
     </SafeAreaProvider>
   );

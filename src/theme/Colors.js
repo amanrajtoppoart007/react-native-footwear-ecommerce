@@ -3,7 +3,7 @@ export default {
   primaryLight: '#1BECCF',
   textColor: '#CEA245',
   background: '#FBFBFB',
-  secondary: '#A48800',
+  secondary: '#CCA145',
   peru: '#CCA145',
   white: '#ffffff',
   dirtBrown: '#7C6335',

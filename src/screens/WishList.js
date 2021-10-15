@@ -11,6 +11,7 @@ import {
 import Colors from '../theme/Colors';
 import ProductCard from '../components/ProductList/ProductCard';
 import Font from '../theme/Font';
+import Header from '../components/Header';
 
 function WishList() {
   const [activeTab, setActiveTab] = useState(false);
@@ -158,6 +159,7 @@ function WishList() {
   ];
   return (
     <SafeAreaView style={styles.container}>
+      <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>

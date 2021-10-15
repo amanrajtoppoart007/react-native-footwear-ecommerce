@@ -10,10 +10,12 @@ import BrandSlider from '../components/Home/BrandSlider';
 import TopSellerSlider from '../components/Home/TopSellerSlider';
 import AdBanner from '../components/Home/AdBanner';
 import Heading from '../components/Heading';
+import Header from '../components/Header';
 
 function Home() {
   return (
     <SafeAreaView style={styles.container}>
+      <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>
