@@ -4,6 +4,7 @@ const Tab = createBottomTabNavigator();
 
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
+import Settings from '../screens/Settings';
 import WishList from '../screens/WishList';
 import Search from '../screens/Search';
 import OrderList from '../screens/OrderList';
@@ -30,8 +31,8 @@ function TabNavigator() {
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Settings"
+        component={Settings}
         options={{headerShown: false}}
       />
     </Tab.Navigator>

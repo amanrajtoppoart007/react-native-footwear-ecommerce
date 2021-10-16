@@ -165,7 +165,7 @@ function Search() {
           <View style={styles.content}>
             <View style={styles.titleSection}>
               <View>
-                <Text style={styles.title}>Our Products</Text>
+                <Text style={styles.title}>Search Products</Text>
               </View>
               <View>
                 <Text>Short By</Text>
@@ -251,6 +251,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
+    marginVertical: 15,
   },
   title: {
     fontFamily: Font.PoppinsSemiBold,

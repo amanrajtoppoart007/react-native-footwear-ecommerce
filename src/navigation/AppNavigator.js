@@ -1,7 +1,7 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import React from 'react';
 import SideBar from '../components/SideBar';
-import TabNavigator from './TabNavigator';
+import HomeNavigator from './HomeNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -10,7 +10,7 @@ const AppNavigator = () => {
     <Drawer.Navigator
       screenOptions={{headerShown: false}}
       drawerContent={props => <SideBar {...props} />}>
-      <Drawer.Screen name="HomeSection" component={TabNavigator} />
+      <Drawer.Screen name="HomeSection" component={HomeNavigator} />
     </Drawer.Navigator>
   );
 };

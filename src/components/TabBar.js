@@ -69,7 +69,7 @@ function TabBarItem({isFocused, route}) {
       </View>
     );
   }
-  if (route.name === 'Profile') {
+  if (route.name === 'Settings') {
     return isFocused ? (
       <View style={styles.activeTabStyle}>
         <Icon name={'user-o'} type={'font-awesome'} size={30} color={'white'} />

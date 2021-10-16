@@ -176,7 +176,7 @@ function ProductList() {
                 {menus &&
                   menus.map((item, index) => {
                     return (
-                      <View>
+                      <View key={index?.toString()}>
                         <Pressable
                           onPress={() => setActiveTab(index)}
                           style={
