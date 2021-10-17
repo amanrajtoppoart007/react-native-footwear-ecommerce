@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {
   heightPercentageToDP as hp,
@@ -8,12 +15,16 @@ import {
 import Colors from '../../theme/Colors';
 import Font from '../../theme/Font';
 import StarRating from '../StarRating';
+import {useNavigation} from '@react-navigation/native';
 
 const ProductSliderItem = props => {
+  const navigation = useNavigation();
   const {item} = props;
   const [liked, setLiked] = useState(false);
   return (
-    <View style={styles.card}>
+    <Pressable
+      onPress={() => navigation.navigate('Product')}
+      style={styles.card}>
       <View style={styles.rowCard}>
         <View>
           <Text style={styles.time}>10 hrs</Text>
@@ -64,7 +75,7 @@ const ProductSliderItem = props => {
           <Text style={styles.category}>Casual Shoes</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

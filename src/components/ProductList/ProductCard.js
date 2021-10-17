@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {
   heightPercentageToDP as hp,
@@ -8,11 +8,15 @@ import {
 import Colors from '../../theme/Colors';
 import Font from '../../theme/Font';
 import StarRating from '../StarRating';
+import {useNavigation} from '@react-navigation/native';
 
 function ProductCard({item, isLiked = false}) {
+  const navigation = useNavigation();
   const [liked, setLiked] = useState(false);
   return (
-    <View style={styles.card}>
+    <Pressable
+      onPress={() => navigation.navigate('Product')}
+      style={styles.card}>
       <View style={styles.imageSection}>
         <View
           style={{
@@ -105,7 +109,7 @@ function ProductCard({item, isLiked = false}) {
           </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
