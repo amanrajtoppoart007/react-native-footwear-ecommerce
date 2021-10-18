@@ -21,64 +21,90 @@ function Home() {
         <View style={styles.contentWrapper}>
           <View style={styles.content}>
             <View style={styles.section}>
-              <View style={{marginVertical: 10}}>
+              <View style={styles.sliderSection}>
                 <AdBanner />
               </View>
-              <View style={{marginVertical: 10}}>
+              <View style={styles.sliderSection}>
                 <OfferSlider />
               </View>
             </View>
 
-            <View>
-              <Heading
-                image={require('../assets/icons/re-seller.png')}
-                title={'Near By Reseller'}
-                onPress={() => {}}
-              />
-              <SellerSlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  image={require('../assets/icons/re-seller.png')}
+                  title={'Near By Reseller'}
+                  onPress={() => {}}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <SellerSlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                image={require('../assets/icons/box.png')}
-                title={'New Release'}
-                onPress={() => {}}
-              />
-              <ProductSlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  image={require('../assets/icons/box.png')}
+                  title={'New Release'}
+                  onPress={() => {}}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <ProductSlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                image={require('../assets/icons/video.png')}
-                title={'Video'}
-                onPress={() => {}}
-              />
-              <VideoSlider />
+
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  image={require('../assets/icons/video.png')}
+                  title={'Video'}
+                  onPress={() => {}}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <VideoSlider />
+                <View style={{marginVertical: 12}}>
+                  <CouponCard />
+                </View>
+              </View>
             </View>
-            <View style={{marginVertical: 12}}>
-              <CouponCard />
+
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  image={require('../assets/icons/store.png')}
+                  title={'Stores'}
+                  onPress={() => {}}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <BrandSlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                image={require('../assets/icons/store.png')}
-                title={'Stores'}
-                onPress={() => {}}
-              />
-              <BrandSlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  image={require('../assets/icons/special.png')}
+                  title={'Top Selling Reseller'}
+                  onPress={() => {}}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <TopSellerSlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                image={require('../assets/icons/special.png')}
-                title={'Top Selling Reseller'}
-                onPress={() => {}}
-              />
-              <TopSellerSlider />
-            </View>
-            <View style={{marginVertical: 8}}>
-              <Heading
-                image={require('../assets/icons/special.png')}
-                title={'Trending Seller'}
-                onPress={() => {}}
-              />
-              <SellerSlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  image={require('../assets/icons/special.png')}
+                  title={'Trending Seller'}
+                  onPress={() => {}}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <SellerSlider />
+              </View>
             </View>
           </View>
         </View>
@@ -100,7 +126,7 @@ const styles = StyleSheet.create({
   },
   content: {
     width: '100%',
-    marginBottom: heightPercentageToDP('10%'),
+    marginBottom: heightPercentageToDP('12%'),
   },
   section: {
     borderTopWidth: 0.5,
@@ -108,6 +134,14 @@ const styles = StyleSheet.create({
     borderTopColor: Colors.border,
     borderBottomColor: Colors.border,
     paddingVertical: 10,
+  },
+  headingSection: {
+    marginVertical: 14,
+    marginBottom: 7,
+  },
+  sliderSection: {
+    marginVertical: 10,
+    marginTop: 7,
   },
 });
 export default Home;
