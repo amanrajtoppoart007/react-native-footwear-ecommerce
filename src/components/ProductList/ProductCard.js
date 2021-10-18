@@ -14,18 +14,9 @@ function ProductCard({item, isLiked = false}) {
   const navigation = useNavigation();
   const [liked, setLiked] = useState(false);
   return (
-    <Pressable
-      onPress={() => navigation.navigate('Product')}
-      style={styles.card}>
+    <View style={styles.card}>
       <View style={styles.imageSection}>
-        <View
-          style={{
-            marginVertical: 10,
-            width: '100%',
-            justifyContent: 'center',
-            alignItems: 'flex-end',
-            paddingHorizontal: 5,
-          }}>
+        <View style={styles.likeSection}>
           <Icon
             onPress={() => setLiked(!liked)}
             type={'font-awesome'}
@@ -34,20 +25,19 @@ function ProductCard({item, isLiked = false}) {
             size={30}
           />
         </View>
-        <Image
-          style={{width: 100, height: 100}}
-          resizeMode={'contain'}
-          source={item?.image}
-        />
+        <Pressable onPress={() => navigation.navigate('Product')}>
+          <Image
+            style={styles.productImg}
+            resizeMode={'contain'}
+            source={item?.image}
+          />
+        </Pressable>
       </View>
-      <View style={{marginVertical: 5}}>
-        <Text style={styles.title}>{item?.title}</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-          }}>
+      <View style={styles.commonVerticalMargin}>
+        <Pressable onPress={() => navigation.navigate('Product')}>
+          <Text style={styles.title}>{item?.title}</Text>
+        </Pressable>
+        <View style={styles.priceSection}>
           <Icon
             type={'font-awesome'}
             name={'dollar'}
@@ -56,24 +46,13 @@ function ProductCard({item, isLiked = false}) {
           />
           <Text style={styles.price}>{item?.price?.toFixed(2)}</Text>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-          }}>
+        <View style={styles.ratingSection}>
           <StarRating rating={item?.rating} />
-          <View style={{marginHorizontal: 5}}>
+          <View style={styles.commonHorizontalMargin}>
             <Text style={styles.rating}>({item?.rating?.toFixed(1)})</Text>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            marginVertical: 5,
-          }}>
+        <View style={styles.resellerSection}>
           <View>
             <Icon
               type={'font-awesome'}
@@ -82,20 +61,14 @@ function ProductCard({item, isLiked = false}) {
               color={'#686667'}
             />
           </View>
-          <View style={{marginHorizontal: 5}}>
+          <View style={styles.commonHorizontalMargin}>
             <Text style={styles.resellerHelper}>Reseller</Text>
           </View>
           <View>
             <Text style={styles.reseller}>{item?.reseller}</Text>
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            marginVertical: 5,
-          }}>
+        <View style={styles.distanceSection}>
           <View>
             <Icon
               type={'feather'}
@@ -104,16 +77,29 @@ function ProductCard({item, isLiked = false}) {
               color={'#686667'}
             />
           </View>
-          <View style={{marginHorizontal: 5}}>
+          <View style={styles.commonHorizontalMargin}>
             <Text style={styles.reseller}>{item?.distance} Miles</Text>
           </View>
         </View>
       </View>
-    </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  commonHorizontalMargin: {
+    marginHorizontal: 5,
+  },
+  commonVerticalMargin: {
+    marginVertical: 5,
+  },
+  resellerSection: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginVertical: 5,
+  },
+  productImg: {width: 100, height: 100},
   card: {
     width: wp('48%'),
     height: hp('52%'),
@@ -156,6 +142,29 @@ const styles = StyleSheet.create({
     fontFamily: Font.PoppinsSemiBold,
     fontSize: 13,
     color: '#686667',
+  },
+  likeSection: {
+    marginVertical: 10,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: 5,
+  },
+  ratingSection: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  distanceSection: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginVertical: 5,
+  },
+  priceSection: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
 });
 

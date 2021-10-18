@@ -22,9 +22,7 @@ const ProductSliderItem = props => {
   const {item} = props;
   const [liked, setLiked] = useState(false);
   return (
-    <Pressable
-      onPress={() => navigation.navigate('Product')}
-      style={styles.card}>
+    <View style={styles.card}>
       <View style={styles.rowCard}>
         <View>
           <Text style={styles.time}>10 hrs</Text>
@@ -45,14 +43,18 @@ const ProductSliderItem = props => {
         </View>
       </View>
       <View>
-        <Image
-          resizeMode={'contain'}
-          style={styles.image}
-          source={item?.image}
-        />
+        <Pressable onPress={() => navigation.navigate('Product')}>
+          <Image
+            resizeMode={'contain'}
+            style={styles.image}
+            source={item?.image}
+          />
+        </Pressable>
       </View>
       <View>
-        <Text style={styles.title}>Adidas Shoes</Text>
+        <Pressable onPress={() => navigation.navigate('Product')}>
+          <Text style={styles.title}>Adidas Shoes</Text>
+        </Pressable>
       </View>
       <View>
         <View style={styles.ratingContainer}>
@@ -75,7 +77,7 @@ const ProductSliderItem = props => {
           <Text style={styles.category}>Casual Shoes</Text>
         </View>
       </View>
-    </Pressable>
+    </View>
   );
 };
 
