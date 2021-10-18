@@ -11,6 +11,7 @@ import TopSellerSlider from '../components/Home/TopSellerSlider';
 import AdBanner from '../components/Home/AdBanner';
 import Heading from '../components/Heading';
 import Header from '../components/Header';
+import {heightPercentageToDP} from 'react-native-responsive-screen';
 
 function Home() {
   return (
@@ -19,12 +20,15 @@ function Home() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>
-            <View style={{marginVertical: 20, marginBottom: 10}}>
-              <AdBanner />
+            <View style={styles.section}>
+              <View style={{marginVertical: 10}}>
+                <AdBanner />
+              </View>
+              <View style={{marginVertical: 10}}>
+                <OfferSlider />
+              </View>
             </View>
-            <View style={{marginVertical: 20, marginTop: 10}}>
-              <OfferSlider />
-            </View>
+
             <View>
               <Heading
                 image={require('../assets/icons/re-seller.png')}
@@ -96,6 +100,14 @@ const styles = StyleSheet.create({
   },
   content: {
     width: '100%',
+    marginBottom: heightPercentageToDP('10%'),
+  },
+  section: {
+    borderTopWidth: 0.5,
+    borderBottomWidth: 0.5,
+    borderTopColor: Colors.border,
+    borderBottomColor: Colors.border,
+    paddingVertical: 10,
   },
 });
 export default Home;

@@ -1,19 +1,11 @@
 import React from 'react';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {
-  Image,
-  Pressable,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import Colors from '../theme/Colors';
 import Font from '../theme/Font';
 import {Icon, withBadge} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
-function Header() {
+function NavBar({pageTitle}) {
   const navigation = useNavigation();
   const badgeOptions = {
     badgeStyle: {backgroundColor: Colors.background},
@@ -30,23 +22,25 @@ function Header() {
       <View style={styles.card}>
         <View style={styles.rowFlexStart}>
           <View>
-            <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-              <Image
-                style={{width: 25, height: 25}}
-                source={require('../assets/icons/menu.png')}
-              />
-            </TouchableOpacity>
+            <Icon
+              onPress={() => navigation.goBack()}
+              name={'ios-arrow-back-outline'}
+              type={'ionicon'}
+              size={35}
+              color={Colors.black}
+            />
           </View>
           <View>
-            <Text style={styles.brand}>Shüe</Text>
+            <Text style={styles.brand}>{pageTitle}</Text>
           </View>
           <View>
-            <Pressable onPress={() => navigation.navigate('Cart')}>
-              <Image
-                style={{width: 35, height: 35}}
-                source={require('../assets/icons/shopping-cart.png')}
-              />
-            </Pressable>
+            <CartBadgedIcon
+              onPress={() => navigation.navigate('Cart')}
+              name={'cart-outline'}
+              type={'ionicon'}
+              size={35}
+              color={Colors.black}
+            />
           </View>
         </View>
       </View>
@@ -57,14 +51,11 @@ function Header() {
 const styles = StyleSheet.create({
   card: {
     width: wp('100%'),
-    height: 60,
+    height: 50,
     backgroundColor: Colors.background,
     paddingHorizontal: 10,
     justifyContent: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.border,
   },
-
   rowFlexStart: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -72,9 +63,9 @@ const styles = StyleSheet.create({
   },
   brand: {
     fontFamily: Font.PoppinsMedium,
-    fontSize: 30,
+    fontSize: 25,
     color: Colors.black,
   },
 });
 
-export default Header;
+export default NavBar;

@@ -13,10 +13,12 @@ import SizeSlider from '../components/Seller/SizeSlider';
 import TrendingProduct from '../components/Seller/TrendingProduct';
 import Banner from '../components/Seller/Banner';
 import ReviewSection from '../components/Seller/ReviewSection';
+import NavBar from '../components/NavBar';
 
 function Seller() {
   return (
     <SafeAreaView style={styles.container}>
+      <NavBar pageTitle={'Seller'} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>

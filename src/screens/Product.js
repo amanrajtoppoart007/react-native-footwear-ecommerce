@@ -15,6 +15,7 @@ import ProductSlider from '../components/Product/ProductSlider';
 import SimilarProductSlider from '../components/Home/ProductSlider';
 import Font from '../theme/Font';
 import StarRating from '../components/StarRating';
+import NavBar from '../components/NavBar';
 
 function Product() {
   const sizes = [6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5];
@@ -22,6 +23,7 @@ function Product() {
   const [sizeIndex, setSizeIndex] = useState(0);
   return (
     <SafeAreaView style={styles.container}>
+      <NavBar pageTitle={'Product'} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>
