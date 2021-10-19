@@ -34,13 +34,12 @@ function OfferSlider() {
   ]);
 
   const [index, setIndex] = useState(0);
-  const [loop] = useState(false);
   const renderItem = ({item}) => <OfferSliderItem item={item} />;
 
   const onViewRef = React.useRef(viewableItems => {
     if (viewableItems.changed?.length > 0) {
       let currentIndex = viewableItems?.changed[0].index;
-      if (currentIndex % data.length === data.length - 1 && loop) {
+      if (currentIndex % data.length === data.length - 1) {
         setIndex(currentIndex);
       } else {
         setIndex(currentIndex);

@@ -68,13 +68,7 @@ function SellerSlider() {
                 <StarRating rating={3} />
               </View>
             </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                marginVertical: 5,
-              }}>
+            <View style={[styles.centerFlexStart, {marginVertical: 5}]}>
               <View>
                 <Icon
                   type={'feather'}
@@ -88,12 +82,7 @@ function SellerSlider() {
               </View>
             </View>
 
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-              }}>
+            <View style={styles.centerFlexStart}>
               <View>
                 <Image
                   style={{width: 8, height: 8}}
@@ -130,16 +119,21 @@ function SellerSlider() {
 
 const styles = StyleSheet.create({
   bgImage: {
-    width: wp('48%'),
-    height: hp('20%'),
+    width: wp('46.5%'),
+    height: 108.47,
     marginHorizontal: 2,
   },
   card: {
-    width: wp('48%'),
-    height: hp('20%'),
+    width: wp('46.5%'),
+    height: 108.47,
     backgroundColor: Colors.peru,
     borderRadius: 5,
     padding: 20,
+  },
+  centerFlexStart: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   rowCard: {
     flexDirection: 'row',
@@ -148,12 +142,12 @@ const styles = StyleSheet.create({
   brandName: {
     fontFamily: Font.PoppinsMedium,
     color: Colors.white,
-    fontSize: 35,
+    fontSize: 25,
   },
   shopName: {
     fontFamily: Font.PoppinsMedium,
     color: Colors.white,
-    fontSize: 15,
+    fontSize: 12,
   },
   shopHelperText: {
     fontFamily: Font.PoppinsLight,

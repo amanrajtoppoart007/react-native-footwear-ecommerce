@@ -17,13 +17,7 @@ function Banner() {
       locations={[0, 0]}
       colors={['#D5A986', '#535D5F']}
       style={styles.canvas}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-          marginVertical: 20,
-        }}>
+      <View style={styles.bannerHeader}>
         <View>
           <Text style={styles.helperTextFirst}>Exclusive</Text>
           <Text style={styles.helperTextSecond}>Footwear</Text>
@@ -38,12 +32,7 @@ function Banner() {
           </View>
         </View>
       </View>
-      <View
-        style={{
-          marginVertical: 25,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <View style={[styles.center, {marginVertical: 5}]}>
         <View style={styles.brandWrapper}>
           <Text style={styles.brandTitle}>AS</Text>
         </View>
@@ -96,8 +85,18 @@ function Banner() {
 const styles = StyleSheet.create({
   canvas: {
     width: wp('100%'),
-    height: hp('50%'),
+    height: hp('45%'),
     backgroundColor: Colors.transparent,
+  },
+  bannerHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  center: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   helperTextFirst: {
     fontFamily: Font.PoppinsMedium,
@@ -127,6 +126,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   brandWrapper: {
+    marginTop: hp('45%') * 0.09,
     width: 67,
     height: 61,
     backgroundColor: Colors.white,

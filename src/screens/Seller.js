@@ -25,40 +25,60 @@ function Seller() {
             <View>
               <Banner />
             </View>
-            <View style={{paddingVertical: 10}}>
-              <Heading
-                title={'PreOrder'}
-                image={require('../assets/icons/box.png')}
-              />
-              <ProductSlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  title={'PreOrder'}
+                  image={require('../assets/icons/box.png')}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <ProductSlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                title={'Video'}
-                image={require('../assets/icons/video.png')}
-              />
-              <VideoSlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  title={'Video'}
+                  image={require('../assets/icons/video.png')}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <VideoSlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                title={'Top Trending Categories'}
-                image={require('../assets/icons/video.png')}
-              />
-              <CategorySlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  title={'Top Trending Categories'}
+                  image={require('../assets/icons/video.png')}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <CategorySlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                title={'Sort by Size'}
-                image={require('../assets/icons/video.png')}
-              />
-              <SizeSlider />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  title={'Sort by Size'}
+                  image={require('../assets/icons/video.png')}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <SizeSlider />
+              </View>
             </View>
-            <View>
-              <Heading
-                title={'Trending Products'}
-                image={require('../assets/icons/video.png')}
-              />
-              <TrendingProduct />
+            <View style={styles.section}>
+              <View style={styles.headingSection}>
+                <Heading
+                  title={'Trending Products'}
+                  image={require('../assets/icons/video.png')}
+                />
+              </View>
+              <View style={styles.sliderSection}>
+                <TrendingProduct />
+              </View>
             </View>
             <View>
               <ReviewSection />
