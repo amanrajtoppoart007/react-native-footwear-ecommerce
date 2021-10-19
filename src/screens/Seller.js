@@ -88,6 +88,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  section: {
+    borderTopWidth: 0.5,
+    borderBottomWidth: 0.5,
+    borderTopColor: Colors.border,
+    borderBottomColor: Colors.border,
+    paddingVertical: 10,
+  },
+  headingSection: {
+    marginVertical: 14,
+    marginBottom: 7,
+  },
+  sliderSection: {
+    marginVertical: 10,
+    marginTop: 7,
+  },
 });
 
 export default Seller;
