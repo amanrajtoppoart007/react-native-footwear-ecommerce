@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   resellerSection: {
+    flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   productImg: {width: 100, height: 100},
   card: {
     width: wp('48%'),
-    height: hp('52%'),
+    height: hp('48%'),
     backgroundColor: '#FFF',
     borderRadius: 10,
     borderWidth: 1,
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontFamily: Font.PoppinsMedium,
-    fontSize: 30,
+    fontSize: 25,
     color: '#4C2E89',
     marginHorizontal: 5,
   },
