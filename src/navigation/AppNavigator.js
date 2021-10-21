@@ -1,18 +1,24 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import React from 'react';
-import SideBar from '../components/SideBar';
-import HomeNavigator from './HomeNavigator';
-
-const Drawer = createDrawerNavigator();
+import React, {useEffect} from 'react';
+import {fetchUser, setTokenAction} from '../slices/Auth.slice';
+import {useDispatch, useSelector} from 'react-redux';
+import {getToken} from '../services/storage';
+import AuthNavigator from './AuthNavigator';
+import DrawerNavigator from './DrawerNavigator';
 
 const AppNavigator = () => {
-  return (
-    <Drawer.Navigator
-      screenOptions={{headerShown: false}}
-      drawerContent={props => <SideBar {...props} />}>
-      <Drawer.Screen name="HomeSection" component={HomeNavigator} />
-    </Drawer.Navigator>
-  );
+  const dispatch = useDispatch();
+  const {token} = useSelector(state => state?.auth);
+
+  useEffect(() => {
+    (async () => {
+      const localToken = await getToken();
+      if (localToken && localToken.length > 0) {
+        dispatch(setTokenAction(localToken));
+        dispatch(fetchUser());
+      }
+    })();
+  }, [token]);
+  return token ? <DrawerNavigator /> : <AuthNavigator />;
 };
 
 export default AppNavigator;

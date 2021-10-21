@@ -18,6 +18,8 @@ import SimpleToast from 'react-native-simple-toast';
 import axios from 'axios';
 import {FETCH_USER_URL} from '../services/api';
 import {setAuthUser} from '../slices/Auth.slice';
+import {setToken} from '../services/storage';
+import {heightPercentageToDP} from 'react-native-responsive-screen';
 
 function Login() {
   const navigation = useNavigation();
@@ -39,6 +41,7 @@ function Login() {
     if (response?.status === 200) {
       const result = response?.data;
       dispatch(setAuthUser(result?.user));
+      await setToken(result?.user?.session_key);
       SimpleToast.show(result?.message);
     } else {
       SimpleToast.show(response?.message?.toString());
@@ -49,27 +52,45 @@ function Login() {
     <SafeAreaView style={styles.container}>
       <View style={styles.contentWrapper}>
         <View style={styles.content}>
-          <Image
-            style={styles.canvas}
-            source={require('../assets/images/login.png')}
-          />
-          <KeyboardAvoidingView style={{paddingHorizontal: 35}}>
+          <View style={styles.curveContainer}>
+            <View style={styles.curveUpperSection}>
+              <View style={styles.curveUpperSectionInner}>
+                <Image
+                  style={{width: 200, height: 200}}
+                  source={require('../assets/images/shue-app-logo.png')}
+                />
+              </View>
+            </View>
+            <View style={styles.curveBottomSection} />
+          </View>
+
+          <View>
             <View>
               <Input
                 inputStyle={styles.inputStyle}
+                containerStyle={styles.containerStyle}
+                style={{backgroundColor: '#e1dede'}}
                 inputContainerStyle={styles.inputContainerStyle}
                 placeholder="Username"
-                leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                leftIcon={{
+                  type: 'font-awesome',
+                  name: 'user-o',
+                  color: '#626262',
+                }}
                 onChangeText={text => setEmail(text)}
               />
             </View>
             <View>
               <Input
+                containerStyle={styles.containerStyle}
                 inputStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
+                style={{backgroundColor: '#e1dede'}}
                 placeholder="Password"
-                leftIcon={{type: 'antdesign', name: 'unlock'}}
-                rightIcon={() => <Icon type={'feather'} name={'eye'} />}
+                leftIcon={{type: 'antdesign', name: 'unlock', color: '#626262'}}
+                rightIcon={() => (
+                  <Icon type={'feather'} name={'eye'} color={'#626262'} />
+                )}
                 onChangeText={text => setPassword(text)}
               />
             </View>
@@ -106,7 +127,7 @@ function Login() {
                 </View>
               </View>
             </View>
-          </KeyboardAvoidingView>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -130,6 +151,31 @@ const styles = StyleSheet.create({
     height: Layout.window.height * 0.5,
     left: -1,
   },
+  curveContainer: {backgroundColor: Colors.black},
+  curveUpperSection: {
+    backgroundColor: Colors.white,
+    height: heightPercentageToDP('25%'),
+  },
+  curveUpperSectionInner: {
+    backgroundColor: Colors.black,
+    borderBottomRightRadius: 60,
+    height: heightPercentageToDP('25%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  curveBottomSection: {
+    backgroundColor: Colors.white,
+    borderTopLeftRadius: 60,
+    height: heightPercentageToDP('15%'),
+  },
+  containerStyle: {
+    borderWidth: 0,
+    backgroundColor: Colors.transparent,
+    marginVertical: 5,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   inputStyle: {
     fontFamily: Font.RobotoRegular,
     fontSize: 18,
@@ -137,10 +183,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.invertBackground,
   },
   inputContainerStyle: {
-    borderWidth: 1,
-    paddingHorizontal: 5,
+    borderWidth: 0,
+    backgroundColor: '#e1dede',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 10,
-    backgroundColor: Colors.invertBackground,
+    paddingHorizontal: 5,
+    borderColor: '#F5F5F5',
   },
   forgotPassword: {
     fontFamily: Font.RobotoRegular,
