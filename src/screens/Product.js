@@ -27,11 +27,11 @@ function Product() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>
-            <View style={{marginVertical: 15}}>
+            <View style={styles.marginVertical(15)}>
               <ProductSlider />
             </View>
             <View style={{paddingHorizontal: 5}}>
-              <View style={{marginVertical: 2}}>
+              <View style={styles.marginVertical(2)}>
                 <View style={styles.titleSection}>
                   <View>
                     <Text style={styles.name}>Nike Air Max 2090</Text>
@@ -212,6 +212,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+  },
+  marginVertical(margin) {
+    return {marginVertical: margin};
   },
   contentWrapper: {
     justifyContent: 'center',
