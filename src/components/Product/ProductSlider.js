@@ -35,19 +35,6 @@ function ProductSlider() {
   const renderItem = ({item}) => (
     <View style={styles.card}>
       <Image resizeMode={'contain'} source={item?.image} style={styles.image} />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        {images &&
-          images.map((item, index) => {
-            return (
-              <Pressable key={Math.random() + index} style={styles.circle} />
-            );
-          })}
-      </View>
     </View>
   );
   return (
@@ -76,11 +63,11 @@ function ProductSlider() {
 const styles = StyleSheet.create({
   card: {
     width: wp('99%'),
-    height: 300,
+    height: 250,
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#dad5d5',
+    backgroundColor: '#F5F5F5',
     marginHorizontal: 5,
   },
   image: {

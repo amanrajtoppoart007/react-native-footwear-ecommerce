@@ -136,7 +136,14 @@ function Product() {
                               ? styles.activeSizeBox
                               : styles.sizeBox
                           }>
-                          <Text>{size}</Text>
+                          <Text
+                            style={
+                              index === sizeIndex
+                                ? styles.activeSizeButtonText
+                                : styles.sizeButtonText
+                            }>
+                            {size}
+                          </Text>
                         </Pressable>
                       );
                     })}
@@ -146,12 +153,7 @@ function Product() {
                 <View>
                   <Text style={styles.attributeTitle}>Color</Text>
                 </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center',
-                  }}>
+                <View style={styles.colorSection}>
                   {colors &&
                     colors.map(item => {
                       return (
@@ -165,12 +167,7 @@ function Product() {
               </View>
 
               <View style={{marginVertical: 10, paddingHorizontal: 10}}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}>
+                <View style={styles.buttonSection}>
                   <TouchableOpacity
                     style={[styles.button, {backgroundColor: '#DBEBF8'}]}>
                     <Text style={[styles.buttonText, {color: Colors.black}]}>
@@ -186,12 +183,7 @@ function Product() {
                 </View>
               </View>
               <View style={{marginVertical: 10, paddingHorizontal: 10}}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center',
-                  }}>
+                <View style={styles.similarProductSection}>
                   <View>
                     <Image
                       style={{width: 15, height: 15}}
@@ -253,7 +245,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 10,
-    backgroundColor: '#dad5d5',
+    backgroundColor: '#F5F5F5',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -315,7 +307,7 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 10,
     borderWidth: 1,
-    backgroundColor: '#DBEBF8',
+    backgroundColor: Colors.black,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 1,
@@ -326,6 +318,21 @@ const styles = StyleSheet.create({
     height: 15,
     borderRadius: 15 / 2,
     marginHorizontal: 5,
+  },
+  buttonSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  sizeButtonText: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 15,
+    color: Colors.black,
+  },
+  activeSizeButtonText: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 15,
+    color: Colors.white,
   },
   button: {
     width: 180,
@@ -342,6 +349,16 @@ const styles = StyleSheet.create({
     fontFamily: Font.PoppinsSemiBold,
     fontSize: 15,
     color: Colors.black,
+  },
+  similarProductSection: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  colorSection: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
 });
 
