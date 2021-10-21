@@ -8,13 +8,16 @@ import {
   Text,
   View,
 } from 'react-native';
+import {SearchBar} from 'react-native-elements';
 import Colors from '../theme/Colors';
 import ProductCard from '../components/ProductList/ProductCard';
 import Font from '../theme/Font';
 import Header from '../components/Header';
+import {widthPercentageToDP} from 'react-native-responsive-screen';
 
 function Search() {
   const [activeTab, setActiveTab] = useState(false);
+  const [search, setSearch] = useState('');
   const products = [
     {
       id: 'product-list-item-one',
@@ -157,12 +160,41 @@ function Search() {
       image: require('../assets/icons/backpack.png'),
     },
   ];
+
+  const onSearch = term => {};
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>
+            <View style={styles.searchSection}>
+              <View>
+                <SearchBar
+                  showLoading={true}
+                  containerStyle={styles.searchContainerStyle}
+                  inputContainerStyle={styles.searchInputContainerStyle}
+                  placeholder="Type Here..."
+                  onChangeText={text => setSearch(text)}
+                />
+              </View>
+              <View>
+                <Pressable
+                  style={{
+                    width: 35,
+                    height: 35,
+                    borderRadius: 35 / 2,
+                    backgroundColor: Colors.black,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    style={{width: 25, height: 25}}
+                    source={require('../assets/icons/menu-filter-icon.png')}
+                  />
+                </Pressable>
+              </View>
+            </View>
             <View style={styles.titleSection}>
               <View>
                 <Text style={styles.title}>Search Products</Text>
@@ -223,6 +255,23 @@ const styles = StyleSheet.create({
   },
   content: {
     width: '100%',
+  },
+  searchContainerStyle: {
+    width: widthPercentageToDP('80%'),
+    height: 45,
+    borderWidth: 0,
+    margin: 0,
+    padding: 0,
+  },
+  searchInputContainerStyle: {
+    borderWidth: 0,
+  },
+  searchSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    marginVertical: 15,
   },
   menuSection: {
     flexDirection: 'row',

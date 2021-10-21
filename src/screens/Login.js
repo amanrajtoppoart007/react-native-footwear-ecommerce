@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   View,
@@ -8,14 +8,43 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import {useDispatch} from 'react-redux';
 import Colors from '../theme/Colors';
 import Layout from '../theme/Layout';
 import {Icon, Input} from 'react-native-elements';
 import Font from '../theme/Font';
 import {useNavigation} from '@react-navigation/native';
+import SimpleToast from 'react-native-simple-toast';
+import axios from 'axios';
+import {FETCH_USER_URL} from '../services/api';
+import {setAuthUser} from '../slices/Auth.slice';
 
 function Login() {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    if (!email?.length) {
+      SimpleToast.show('Please enter valid email');
+      return false;
+    }
+    if (!password.length || password?.length < 6) {
+      SimpleToast.show('Please enter valid more than six digit password');
+      return false;
+    }
+
+    const response = await axios.post(FETCH_USER_URL, {email, password});
+    if (response?.status === 200) {
+      const result = response?.data;
+      dispatch(setAuthUser(result?.user));
+      SimpleToast.show(result?.message);
+    } else {
+      SimpleToast.show(response?.message?.toString());
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.contentWrapper}>
@@ -31,6 +60,7 @@ function Login() {
                 inputContainerStyle={styles.inputContainerStyle}
                 placeholder="Username"
                 leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                onChangeText={text => setEmail(text)}
               />
             </View>
             <View>
@@ -40,6 +70,7 @@ function Login() {
                 placeholder="Password"
                 leftIcon={{type: 'antdesign', name: 'unlock'}}
                 rightIcon={() => <Icon type={'feather'} name={'eye'} />}
+                onChangeText={text => setPassword(text)}
               />
             </View>
             <View style={{paddingHorizontal: 20, marginVertical: 10}}>
@@ -47,7 +78,9 @@ function Login() {
             </View>
             <View>
               <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <TouchableOpacity style={styles.loginButton}>
+                <TouchableOpacity
+                  onPress={() => handleLogin()}
+                  style={styles.loginButton}>
                   <Text style={styles.loginButtonText}>Sign In</Text>
                 </TouchableOpacity>
               </View>

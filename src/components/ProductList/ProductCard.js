@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   productImg: {width: 100, height: 100},
   card: {
     width: wp('48%'),
-    height: hp('48%'),
+    height: hp('50%'),
     backgroundColor: '#FFF',
     borderRadius: 10,
     borderWidth: 1,
