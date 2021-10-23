@@ -7,6 +7,7 @@ import {
   KeyboardAvoidingView,
   Text,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import Colors from '../theme/Colors';
 import {Icon, Input} from 'react-native-elements';
@@ -21,100 +22,104 @@ function Register() {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.contentWrapper}>
-        <View style={styles.content}>
-          <View style={styles.curveContainer}>
-            <View style={styles.curveUpperSection}>
-              <View style={styles.curveUpperSectionInner}>
-                <Image
-                  style={styles.logo}
-                  source={require('../assets/images/shue-app-logo.png')}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.contentWrapper}>
+          <View style={styles.content}>
+            <View style={styles.curveContainer}>
+              <View style={styles.curveUpperSection}>
+                <View style={styles.curveUpperSectionInner}>
+                  <Image
+                    style={styles.logo}
+                    source={require('../assets/images/shue-app-logo.png')}
+                  />
+                </View>
+              </View>
+              <View style={styles.curveBottomSection}>
+                <Text style={styles.title}>Sign in</Text>
+              </View>
+            </View>
+            <View>
+              <View>
+                <Input
+                  containerStyle={styles.containerStyle}
+                  inputStyle={styles.inputStyle}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  style={styles.inputBgColor}
+                  placeholder="Full Name"
+                  leftIcon={{type: 'font-awesome', name: 'user-o'}}
                 />
               </View>
-            </View>
-            <View style={styles.curveBottomSection}>
-              <Text style={styles.title}>Sign in</Text>
-            </View>
-          </View>
-          <View>
-            <View>
-              <Input
-                containerStyle={styles.containerStyle}
-                inputStyle={styles.inputStyle}
-                inputContainerStyle={styles.inputContainerStyle}
-                style={styles.inputBgColor}
-                placeholder="Full Name"
-                leftIcon={{type: 'font-awesome', name: 'user-o'}}
-              />
-            </View>
 
-            <View>
-              <Input
-                containerStyle={styles.containerStyle}
-                inputStyle={styles.inputStyle}
-                inputContainerStyle={styles.inputContainerStyle}
-                style={styles.inputBgColor}
-                placeholder="Username"
-                leftIcon={{type: 'font-awesome', name: 'user-o'}}
-              />
-            </View>
-
-            <View>
-              <Input
-                containerStyle={styles.containerStyle}
-                inputStyle={styles.inputStyle}
-                inputContainerStyle={styles.inputContainerStyle}
-                style={styles.inputBgColor}
-                placeholder="Email"
-                leftIcon={{type: 'font-awesome', name: 'user-o'}}
-              />
-            </View>
-
-            <View>
-              <Input
-                containerStyle={styles.containerStyle}
-                inputStyle={styles.inputStyle}
-                inputContainerStyle={styles.inputContainerStyle}
-                style={styles.inputBgColor}
-                placeholder="Password"
-                leftIcon={{type: 'antdesign', name: 'unlock'}}
-                rightIcon={() => <Icon type={'feather'} name={'eye'} />}
-              />
-            </View>
-            <View style={{paddingHorizontal: 20, marginVertical: 10}}>
-              <Text style={styles.forgotPassword}>Forgot Password</Text>
-            </View>
-            <View>
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <TouchableOpacity style={styles.loginButton}>
-                  <Text style={styles.loginButtonText}>Sign Up</Text>
-                </TouchableOpacity>
+              <View>
+                <Input
+                  containerStyle={styles.containerStyle}
+                  inputStyle={styles.inputStyle}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  style={styles.inputBgColor}
+                  placeholder="Username"
+                  leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                />
               </View>
 
-              <View style={{marginVertical: 10}}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginHorizontal: 50,
-                    paddingHorizontal: 10,
-                  }}>
-                  <View style={{width: '70%'}}>
-                    <Text style={styles.membershipText}>Already a Member</Text>
-                  </View>
-                  <View style={{width: '30%'}}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate('Login')}>
-                      <Text style={styles.registerText}>Login</Text>
-                    </TouchableOpacity>
+              <View>
+                <Input
+                  containerStyle={styles.containerStyle}
+                  inputStyle={styles.inputStyle}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  style={styles.inputBgColor}
+                  placeholder="Email"
+                  leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                />
+              </View>
+
+              <View>
+                <Input
+                  containerStyle={styles.containerStyle}
+                  inputStyle={styles.inputStyle}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  style={styles.inputBgColor}
+                  placeholder="Password"
+                  leftIcon={{type: 'antdesign', name: 'unlock'}}
+                  rightIcon={() => <Icon type={'feather'} name={'eye'} />}
+                />
+              </View>
+              <View style={{paddingHorizontal: 20, marginVertical: 10}}>
+                <Text style={styles.forgotPassword}>Forgot Password</Text>
+              </View>
+              <View>
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                  <TouchableOpacity style={styles.loginButton}>
+                    <Text style={styles.loginButtonText}>Sign Up</Text>
+                  </TouchableOpacity>
+                </View>
+
+                <View style={{marginVertical: 10}}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginHorizontal: 50,
+                      paddingHorizontal: 10,
+                    }}>
+                    <View style={{width: '70%'}}>
+                      <Text style={styles.membershipText}>
+                        Already a Member
+                      </Text>
+                    </View>
+                    <View style={{width: '30%'}}>
+                      <TouchableOpacity
+                        onPress={() => navigation.navigate('Login')}>
+                        <Text style={styles.registerText}>Login</Text>
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
               </View>
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
