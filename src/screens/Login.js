@@ -4,9 +4,9 @@ import {
   View,
   StyleSheet,
   Image,
-  KeyboardAvoidingView,
   Text,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
 import Colors from '../theme/Colors';
@@ -50,88 +50,94 @@ function Login() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.contentWrapper}>
-        <View style={styles.content}>
-          <View style={styles.curveContainer}>
-            <View style={styles.curveUpperSection}>
-              <View style={styles.curveUpperSectionInner}>
-                <Image
-                  style={{width: 200, height: 200}}
-                  source={require('../assets/images/shue-app-logo.png')}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.contentWrapper}>
+          <View style={styles.content}>
+            <View style={styles.curveContainer}>
+              <View style={styles.curveUpperSection}>
+                <View style={styles.curveUpperSectionInner}>
+                  <Image
+                    style={{width: 200, height: 200}}
+                    source={require('../assets/images/shue-app-logo.png')}
+                  />
+                </View>
+              </View>
+              <View style={styles.curveBottomSection}>
+                <Text style={styles.title}>Sign in</Text>
+              </View>
+            </View>
+
+            <View>
+              <View>
+                <Input
+                  inputStyle={styles.inputStyle}
+                  containerStyle={styles.containerStyle}
+                  style={{backgroundColor: '#E7E4E4FF'}}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  placeholder="Username"
+                  leftIcon={{
+                    type: 'font-awesome',
+                    name: 'user-o',
+                    color: '#626262',
+                  }}
+                  onChangeText={text => setEmail(text)}
                 />
               </View>
-            </View>
-            <View style={styles.curveBottomSection}>
-              <Text style={styles.title}>Sign in</Text>
-            </View>
-          </View>
-
-          <View>
-            <View>
-              <Input
-                inputStyle={styles.inputStyle}
-                containerStyle={styles.containerStyle}
-                style={{backgroundColor: '#E7E4E4FF'}}
-                inputContainerStyle={styles.inputContainerStyle}
-                placeholder="Username"
-                leftIcon={{
-                  type: 'font-awesome',
-                  name: 'user-o',
-                  color: '#626262',
-                }}
-                onChangeText={text => setEmail(text)}
-              />
-            </View>
-            <View>
-              <Input
-                containerStyle={styles.containerStyle}
-                inputStyle={styles.inputStyle}
-                inputContainerStyle={styles.inputContainerStyle}
-                style={{backgroundColor: '#E7E4E4FF'}}
-                placeholder="Password"
-                leftIcon={{type: 'antdesign', name: 'unlock', color: '#626262'}}
-                rightIcon={() => (
-                  <Icon type={'feather'} name={'eye'} color={'#626262'} />
-                )}
-                onChangeText={text => setPassword(text)}
-              />
-            </View>
-            <View style={{paddingHorizontal: 20, marginVertical: 10}}>
-              <Text style={styles.forgotPassword}>Forgot Password</Text>
-            </View>
-            <View>
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <TouchableOpacity
-                  onPress={() => handleLogin()}
-                  style={styles.loginButton}>
-                  <Text style={styles.loginButtonText}>Sign In</Text>
-                </TouchableOpacity>
+              <View>
+                <Input
+                  containerStyle={styles.containerStyle}
+                  inputStyle={styles.inputStyle}
+                  inputContainerStyle={styles.inputContainerStyle}
+                  style={{backgroundColor: '#E7E4E4FF'}}
+                  placeholder="Password"
+                  leftIcon={{
+                    type: 'antdesign',
+                    name: 'unlock',
+                    color: '#626262',
+                  }}
+                  rightIcon={() => (
+                    <Icon type={'feather'} name={'eye'} color={'#626262'} />
+                  )}
+                  onChangeText={text => setPassword(text)}
+                />
               </View>
+              <View style={{paddingHorizontal: 20, marginVertical: 10}}>
+                <Text style={styles.forgotPassword}>Forgot Password</Text>
+              </View>
+              <View>
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                  <TouchableOpacity
+                    onPress={() => handleLogin()}
+                    style={styles.loginButton}>
+                    <Text style={styles.loginButtonText}>Sign In</Text>
+                  </TouchableOpacity>
+                </View>
 
-              <View style={{marginVertical: 10}}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginHorizontal: 50,
-                    paddingHorizontal: 10,
-                  }}>
-                  <View style={{width: '50%'}}>
-                    <Text style={styles.membershipText}>Not a Member</Text>
-                  </View>
-                  <View style={{width: '50%'}}>
-                    <TouchableOpacity
-                      onPress={() => navigation.navigate('Register')}>
-                      <Text style={styles.registerText}>Sign Up</Text>
-                    </TouchableOpacity>
+                <View style={{marginVertical: 10}}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginHorizontal: 50,
+                      paddingHorizontal: 10,
+                    }}>
+                    <View style={{width: '50%'}}>
+                      <Text style={styles.membershipText}>Not a Member</Text>
+                    </View>
+                    <View style={{width: '50%'}}>
+                      <TouchableOpacity
+                        onPress={() => navigation.navigate('Register')}>
+                        <Text style={styles.registerText}>Sign Up</Text>
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
               </View>
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
