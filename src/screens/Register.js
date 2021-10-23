@@ -9,10 +9,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Colors from '../theme/Colors';
-import Layout from '../theme/Layout';
 import {Icon, Input} from 'react-native-elements';
 import Font from '../theme/Font';
 import {useNavigation} from '@react-navigation/native';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 
 function Register() {
   const navigation = useNavigation();
@@ -20,15 +23,26 @@ function Register() {
     <SafeAreaView style={styles.container}>
       <View style={styles.contentWrapper}>
         <View style={styles.content}>
-          <Image
-            style={styles.canvas}
-            source={require('../assets/images/login.png')}
-          />
-          <KeyboardAvoidingView style={{paddingHorizontal: 35}}>
+          <View style={styles.curveContainer}>
+            <View style={styles.curveUpperSection}>
+              <View style={styles.curveUpperSectionInner}>
+                <Image
+                  style={styles.logo}
+                  source={require('../assets/images/shue-app-logo.png')}
+                />
+              </View>
+            </View>
+            <View style={styles.curveBottomSection}>
+              <Text style={styles.title}>Sign in</Text>
+            </View>
+          </View>
+          <View>
             <View>
               <Input
+                containerStyle={styles.containerStyle}
                 inputStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
+                style={styles.inputBgColor}
                 placeholder="Full Name"
                 leftIcon={{type: 'font-awesome', name: 'user-o'}}
               />
@@ -36,8 +50,10 @@ function Register() {
 
             <View>
               <Input
+                containerStyle={styles.containerStyle}
                 inputStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
+                style={styles.inputBgColor}
                 placeholder="Username"
                 leftIcon={{type: 'font-awesome', name: 'user-o'}}
               />
@@ -45,8 +61,10 @@ function Register() {
 
             <View>
               <Input
+                containerStyle={styles.containerStyle}
                 inputStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
+                style={styles.inputBgColor}
                 placeholder="Email"
                 leftIcon={{type: 'font-awesome', name: 'user-o'}}
               />
@@ -54,8 +72,10 @@ function Register() {
 
             <View>
               <Input
+                containerStyle={styles.containerStyle}
                 inputStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
+                style={styles.inputBgColor}
                 placeholder="Password"
                 leftIcon={{type: 'antdesign', name: 'unlock'}}
                 rightIcon={() => <Icon type={'feather'} name={'eye'} />}
@@ -67,7 +87,7 @@ function Register() {
             <View>
               <View style={{justifyContent: 'center', alignItems: 'center'}}>
                 <TouchableOpacity style={styles.loginButton}>
-                  <Text style={styles.loginButtonText}>Sign In</Text>
+                  <Text style={styles.loginButtonText}>Sign Up</Text>
                 </TouchableOpacity>
               </View>
 
@@ -92,7 +112,7 @@ function Register() {
                 </View>
               </View>
             </View>
-          </KeyboardAvoidingView>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -111,23 +131,63 @@ const styles = StyleSheet.create({
   content: {
     width: '100%',
   },
-  canvas: {
-    width: 100,
-    height: 100,
-    left: -1,
+  inputBgColor: {
+    backgroundColor: '#E7E4E4FF',
+    height: 60,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 200,
+    height: 200,
+  },
+  title: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 25,
+    color: Colors.black,
+  },
+  curveContainer: {backgroundColor: Colors.black},
+  curveUpperSection: {
+    backgroundColor: Colors.white,
+    height: heightPercentageToDP('25%'),
+  },
+  curveUpperSectionInner: {
+    backgroundColor: Colors.black,
+    borderBottomRightRadius: 60,
+    height: heightPercentageToDP('25%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  curveBottomSection: {
+    backgroundColor: Colors.white,
+    borderTopLeftRadius: 60,
+    height: heightPercentageToDP('15%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  containerStyle: {
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 3,
   },
   inputStyle: {
-    fontFamily: Font.RobotoRegular,
+    fontFamily: Font.PoppinsRegular,
     fontSize: 18,
     color: Colors.primary,
     backgroundColor: Colors.invertBackground,
   },
   inputContainerStyle: {
-    borderWidth: 1,
-    paddingHorizontal: 5,
+    width: widthPercentageToDP('90%'),
+    height: 60,
+    backgroundColor: '#E7E4E4FF',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 10,
-    backgroundColor: Colors.invertBackground,
+    paddingHorizontal: 5,
+    borderColor: '#E7E4E4FF',
   },
+
   forgotPassword: {
     fontFamily: Font.RobotoRegular,
     fontSize: 15,

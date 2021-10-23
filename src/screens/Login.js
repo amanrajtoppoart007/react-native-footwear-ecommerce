@@ -60,7 +60,7 @@ function Login() {
               <View style={styles.curveUpperSection}>
                 <View style={styles.curveUpperSectionInner}>
                   <Image
-                    style={{width: 200, height: 200}}
+                    style={styles.logo}
                     source={require('../assets/images/shue-app-logo.png')}
                   />
                 </View>
@@ -117,13 +117,12 @@ function Login() {
                     <Text style={styles.loginButtonText}>Sign In</Text>
                   </TouchableOpacity>
                 </View>
-
-                <View style={{marginVertical: 10}}>
-                  <View style={[styles.membershipSection, {}]}>
-                    <View style={{width: '50%'}}>
+                <View style={{marginVertical: 5}}>
+                  <View style={styles.membershipSection}>
+                    <View>
                       <Text style={styles.membershipText}>Not a Member</Text>
                     </View>
-                    <View style={{width: '50%'}}>
+                    <View style={{marginHorizontal: 5}}>
                       <TouchableOpacity
                         onPress={() => navigation.navigate('Register')}>
                         <Text style={styles.registerText}>Sign Up</Text>
@@ -155,10 +154,9 @@ const styles = StyleSheet.create({
   inputBgColor: {
     backgroundColor: '#E7E4E4FF',
   },
-  canvas: {
-    width: Layout.window.width + 5,
-    height: Layout.window.height * 0.5,
-    left: -1,
+  logo: {
+    width: 200,
+    height: 200,
   },
   curveContainer: {backgroundColor: Colors.black},
   curveUpperSection: {
@@ -213,8 +211,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   loginButton: {
-    width: 200,
-    height: 60,
+    width: 250,
+    height: 70,
     backgroundColor: '#A48800',
     justifyContent: 'center',
     alignItems: 'center',
