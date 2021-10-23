@@ -75,7 +75,7 @@ function Login() {
                 <Input
                   containerStyle={styles.containerStyle}
                   inputStyle={styles.inputStyle}
-                  style={{backgroundColor: '#E7E4E4FF'}}
+                  style={styles.inputBgColor}
                   inputContainerStyle={styles.inputContainerStyle}
                   placeholder="Username"
                   leftIcon={{
@@ -91,7 +91,7 @@ function Login() {
                   containerStyle={styles.containerStyle}
                   inputStyle={styles.inputStyle}
                   inputContainerStyle={styles.inputContainerStyle}
-                  style={{backgroundColor: '#E7E4E4FF'}}
+                  style={styles.inputBgColor}
                   placeholder="Password"
                   leftIcon={{
                     type: 'antdesign',
@@ -104,7 +104,7 @@ function Login() {
                   onChangeText={text => setPassword(text)}
                 />
               </View>
-              <View style={{paddingHorizontal: 20, marginVertical: 10}}>
+              <View style={{paddingHorizontal: 20}}>
                 <Text style={styles.forgotPassword}>Forgot Password</Text>
               </View>
               <View>
@@ -117,14 +117,7 @@ function Login() {
                 </View>
 
                 <View style={{marginVertical: 10}}>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      marginHorizontal: 50,
-                      paddingHorizontal: 10,
-                    }}>
+                  <View style={[styles.membershipSection, {}]}>
                     <View style={{width: '50%'}}>
                       <Text style={styles.membershipText}>Not a Member</Text>
                     </View>
@@ -156,6 +149,9 @@ const styles = StyleSheet.create({
   },
   content: {
     width: '100%',
+  },
+  inputBgColor: {
+    backgroundColor: '#E7E4E4FF',
   },
   canvas: {
     width: Layout.window.width + 5,
@@ -224,6 +220,11 @@ const styles = StyleSheet.create({
     fontFamily: Font.PoppinsRegular,
     fontSize: 22,
     color: Colors.white,
+  },
+  membershipSection: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   membershipText: {
     fontFamily: Font.PoppinsRegular,
