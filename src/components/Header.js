@@ -1,7 +1,6 @@
 import React from 'react';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {
-  Image,
   Pressable,
   StatusBar,
   StyleSheet,
@@ -31,10 +30,7 @@ function Header() {
         <View style={styles.rowFlexStart}>
           <View>
             <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-              <Image
-                style={{width: 25, height: 25}}
-                source={require('../assets/icons/menu.png')}
-              />
+              <Icon name={'menu'} type={'material-community-icon'} size={25} />
             </TouchableOpacity>
           </View>
           <View>
@@ -42,9 +38,10 @@ function Header() {
           </View>
           <View>
             <Pressable onPress={() => navigation.navigate('Cart')}>
-              <Image
-                style={{width: 35, height: 35}}
-                source={require('../assets/icons/shopping-cart.png')}
+              <CartBadgedIcon
+                name={'shopping-cart'}
+                type={'font-awesome-5'}
+                size={35}
               />
             </Pressable>
           </View>

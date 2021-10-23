@@ -61,7 +61,9 @@ function Login() {
                 />
               </View>
             </View>
-            <View style={styles.curveBottomSection} />
+            <View style={styles.curveBottomSection}>
+              <Text style={styles.title}>Sign in</Text>
+            </View>
           </View>
 
           <View>
@@ -69,7 +71,7 @@ function Login() {
               <Input
                 inputStyle={styles.inputStyle}
                 containerStyle={styles.containerStyle}
-                style={{backgroundColor: '#e1dede'}}
+                style={{backgroundColor: '#E7E4E4FF'}}
                 inputContainerStyle={styles.inputContainerStyle}
                 placeholder="Username"
                 leftIcon={{
@@ -85,7 +87,7 @@ function Login() {
                 containerStyle={styles.containerStyle}
                 inputStyle={styles.inputStyle}
                 inputContainerStyle={styles.inputContainerStyle}
-                style={{backgroundColor: '#e1dede'}}
+                style={{backgroundColor: '#E7E4E4FF'}}
                 placeholder="Password"
                 leftIcon={{type: 'antdesign', name: 'unlock', color: '#626262'}}
                 rightIcon={() => (
@@ -167,6 +169,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     borderTopLeftRadius: 60,
     height: heightPercentageToDP('15%'),
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   containerStyle: {
     borderWidth: 0,
@@ -177,22 +181,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputStyle: {
-    fontFamily: Font.RobotoRegular,
+    fontFamily: Font.PoppinsRegular,
     fontSize: 18,
     color: Colors.primary,
     backgroundColor: Colors.invertBackground,
   },
   inputContainerStyle: {
+    height: 65,
     borderWidth: 0,
-    backgroundColor: '#e1dede',
+    backgroundColor: '#E7E4E4FF',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     paddingHorizontal: 5,
-    borderColor: '#F5F5F5',
+    borderColor: '#E7E4E4FF',
   },
   forgotPassword: {
-    fontFamily: Font.RobotoRegular,
+    fontFamily: Font.PoppinsRegular,
     fontSize: 15,
     color: Colors.secondary,
     textAlign: 'right',
@@ -205,18 +210,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
   },
+  title: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 25,
+    color: Colors.black,
+  },
   loginButtonText: {
-    fontFamily: Font.RobotoRegular,
+    fontFamily: Font.PoppinsRegular,
     fontSize: 22,
     color: Colors.white,
   },
   membershipText: {
-    fontFamily: Font.RobotoRegular,
+    fontFamily: Font.PoppinsRegular,
     fontSize: 15,
     color: Colors.primary,
   },
   registerText: {
-    fontFamily: Font.RobotoRegular,
+    fontFamily: Font.PoppinsSemiBold,
     fontSize: 24,
     color: Colors.primary,
     fontWeight: 'bold',
