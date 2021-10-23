@@ -16,7 +16,7 @@ import Font from '../theme/Font';
 import {useNavigation} from '@react-navigation/native';
 import SimpleToast from 'react-native-simple-toast';
 import axios from 'axios';
-import {FETCH_USER_URL} from '../services/api';
+import {USER_LOGIN_URL} from '../services/api';
 import {setAuthUser} from '../slices/Auth.slice';
 import {setToken} from '../services/storage';
 import {
@@ -40,7 +40,7 @@ function Login() {
       return false;
     }
 
-    const response = await axios.post(FETCH_USER_URL, {email, password});
+    const response = await axios.post(USER_LOGIN_URL, {email, password});
     if (response?.status === 200) {
       const result = response?.data;
       dispatch(setAuthUser(result?.user));
