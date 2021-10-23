@@ -105,10 +105,12 @@ function Login() {
                 />
               </View>
               <View style={{paddingHorizontal: 20}}>
-                <Text style={styles.forgotPassword}>Forgot Password</Text>
+                <TouchableOpacity>
+                  <Text style={styles.forgotPassword}>Forgot Password</Text>
+                </TouchableOpacity>
               </View>
               <View>
-                <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                <View style={styles.buttonSection}>
                   <TouchableOpacity
                     onPress={() => handleLogin()}
                     style={styles.loginButton}>
@@ -178,8 +180,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   containerStyle: {
+    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 3,
   },
   inputStyle: {
     fontFamily: Font.PoppinsRegular,
@@ -200,13 +204,18 @@ const styles = StyleSheet.create({
   forgotPassword: {
     fontFamily: Font.PoppinsRegular,
     fontSize: 15,
-    color: Colors.secondary,
+    color: '#9E860F',
     textAlign: 'right',
+  },
+  buttonSection: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
   },
   loginButton: {
     width: 200,
-    height: 50,
-    backgroundColor: Colors.secondary,
+    height: 60,
+    backgroundColor: '#A48800',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
@@ -217,7 +226,7 @@ const styles = StyleSheet.create({
     color: Colors.black,
   },
   loginButtonText: {
-    fontFamily: Font.PoppinsRegular,
+    fontFamily: Font.PoppinsSemiBold,
     fontSize: 22,
     color: Colors.white,
   },
