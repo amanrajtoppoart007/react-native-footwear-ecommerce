@@ -7,10 +7,10 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  StatusBar,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
 import Colors from '../theme/Colors';
-import Layout from '../theme/Layout';
 import {Icon, Input} from 'react-native-elements';
 import Font from '../theme/Font';
 import {useNavigation} from '@react-navigation/native';
@@ -53,6 +53,11 @@ function Login() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor={Colors.black}
+        StatusBarStyle={'dark-content'}
+      />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>

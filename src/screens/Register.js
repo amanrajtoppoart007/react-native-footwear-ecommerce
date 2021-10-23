@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   View,
   StyleSheet,
   Image,
-  KeyboardAvoidingView,
   Text,
   TouchableOpacity,
   ScrollView,
+  Pressable,
+  StatusBar,
 } from 'react-native';
 import Colors from '../theme/Colors';
 import {Icon, Input} from 'react-native-elements';
@@ -20,8 +21,19 @@ import {
 
 function Register() {
   const navigation = useNavigation();
+  const [secureText, setSecureText] = useState(true);
+
+  function toggleSecureInput() {
+    setSecureText(!secureText);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor={Colors.black}
+        StatusBarStyle={'dark-content'}
+      />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.contentWrapper}>
           <View style={styles.content}>
@@ -35,7 +47,7 @@ function Register() {
                 </View>
               </View>
               <View style={styles.curveBottomSection}>
-                <Text style={styles.title}>Sign in</Text>
+                <Text style={styles.title}>Sign Up</Text>
               </View>
             </View>
             <View>
@@ -46,7 +58,11 @@ function Register() {
                   inputContainerStyle={styles.inputContainerStyle}
                   style={styles.inputBgColor}
                   placeholder="Full Name"
-                  leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                  leftIcon={{
+                    type: 'font-awesome',
+                    name: 'user-o',
+                    color: '#626262',
+                  }}
                 />
               </View>
 
@@ -57,7 +73,11 @@ function Register() {
                   inputContainerStyle={styles.inputContainerStyle}
                   style={styles.inputBgColor}
                   placeholder="Username"
-                  leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                  leftIcon={{
+                    type: 'font-awesome',
+                    name: 'user-o',
+                    color: '#626262',
+                  }}
                 />
               </View>
 
@@ -68,7 +88,11 @@ function Register() {
                   inputContainerStyle={styles.inputContainerStyle}
                   style={styles.inputBgColor}
                   placeholder="Email"
-                  leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                  leftIcon={{
+                    type: 'material-community',
+                    name: 'email-outline',
+                    color: '#626262',
+                  }}
                 />
               </View>
 
@@ -79,12 +103,21 @@ function Register() {
                   inputContainerStyle={styles.inputContainerStyle}
                   style={styles.inputBgColor}
                   placeholder="Password"
-                  leftIcon={{type: 'antdesign', name: 'unlock'}}
-                  rightIcon={() => <Icon type={'feather'} name={'eye'} />}
+                  leftIcon={{
+                    type: 'antdesign',
+                    name: 'unlock',
+                    color: '#626262',
+                  }}
+                  secureTextEntry={secureText}
+                  rightIcon={() => (
+                    <Icon
+                      onPress={() => toggleSecureInput()}
+                      type={'feather'}
+                      name={'eye'}
+                      color={'#626262'}
+                    />
+                  )}
                 />
-              </View>
-              <View style={{paddingHorizontal: 20, marginVertical: 8}}>
-                <Text style={styles.forgotPassword}>Forgot Password</Text>
               </View>
               <View>
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -100,11 +133,10 @@ function Register() {
                         Already a Member
                       </Text>
                     </View>
-                    <View>
-                      <TouchableOpacity
-                        onPress={() => navigation.navigate('Login')}>
+                    <View style={{marginHorizontal: 5}}>
+                      <Pressable onPress={() => navigation.goBack()}>
                         <Text style={styles.registerText}>Login</Text>
-                      </TouchableOpacity>
+                      </Pressable>
                     </View>
                   </View>
                 </View>
@@ -193,8 +225,8 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   loginButton: {
-    width: 200,
-    height: 50,
+    width: 250,
+    height: 65,
     backgroundColor: Colors.secondary,
     justifyContent: 'center',
     alignItems: 'center',
