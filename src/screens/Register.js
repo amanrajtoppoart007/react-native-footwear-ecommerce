@@ -83,7 +83,7 @@ function Register() {
                   rightIcon={() => <Icon type={'feather'} name={'eye'} />}
                 />
               </View>
-              <View style={{paddingHorizontal: 20, marginVertical: 10}}>
+              <View style={{paddingHorizontal: 20, marginVertical: 8}}>
                 <Text style={styles.forgotPassword}>Forgot Password</Text>
               </View>
               <View>
@@ -94,20 +94,13 @@ function Register() {
                 </View>
 
                 <View style={{marginVertical: 10}}>
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      marginHorizontal: 50,
-                      paddingHorizontal: 10,
-                    }}>
-                    <View style={{width: '70%'}}>
+                  <View style={styles.membershipSection}>
+                    <View>
                       <Text style={styles.membershipText}>
                         Already a Member
                       </Text>
                     </View>
-                    <View style={{width: '30%'}}>
+                    <View>
                       <TouchableOpacity
                         onPress={() => navigation.navigate('Login')}>
                         <Text style={styles.registerText}>Login</Text>
@@ -211,6 +204,13 @@ const styles = StyleSheet.create({
     fontFamily: Font.RobotoRegular,
     fontSize: 22,
     color: Colors.white,
+  },
+  membershipSection: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 50,
+    paddingHorizontal: 10,
   },
   membershipText: {
     fontFamily: Font.RobotoRegular,
