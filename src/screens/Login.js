@@ -19,7 +19,10 @@ import axios from 'axios';
 import {FETCH_USER_URL} from '../services/api';
 import {setAuthUser} from '../slices/Auth.slice';
 import {setToken} from '../services/storage';
-import {heightPercentageToDP} from 'react-native-responsive-screen';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 
 function Login() {
   const navigation = useNavigation();
@@ -70,8 +73,8 @@ function Login() {
             <View>
               <View>
                 <Input
-                  inputStyle={styles.inputStyle}
                   containerStyle={styles.containerStyle}
+                  inputStyle={styles.inputStyle}
                   style={{backgroundColor: '#E7E4E4FF'}}
                   inputContainerStyle={styles.inputContainerStyle}
                   placeholder="Username"
@@ -179,10 +182,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   containerStyle: {
-    borderWidth: 0,
-    backgroundColor: Colors.transparent,
-    marginVertical: 5,
-    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -193,8 +192,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.invertBackground,
   },
   inputContainerStyle: {
-    height: 65,
-    borderWidth: 0,
+    width: widthPercentageToDP('90%'),
+    height: 60,
     backgroundColor: '#E7E4E4FF',
     justifyContent: 'center',
     alignItems: 'center',
