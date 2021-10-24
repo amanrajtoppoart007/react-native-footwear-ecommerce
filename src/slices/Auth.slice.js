@@ -34,7 +34,6 @@ export const authSlice = createSlice({
       state.token = action.payload?.session_key;
     },
     setTokenAction: (state, action) => {
-      console.log(action?.payload);
       state.token = action.payload;
     },
     toggleLoading: state => {
