@@ -62,7 +62,7 @@ export const api = {
     const session = {session_key: token};
     const data = {...session, ...params};
     let config = {
-      headers: {},
+      headers: {'Content-Type': 'multipart/form-data'},
       data: data,
     };
     return axios.get(url, config);
@@ -74,7 +74,7 @@ export const api = {
     let config = {
       method: 'post',
       url,
-      headers: {},
+      headers: {'Content-Type': 'multipart/form-data'},
       data: data,
     };
     return axios(config);

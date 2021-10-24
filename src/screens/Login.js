@@ -40,11 +40,19 @@ function Login() {
       return false;
     }
 
-    const response = await axios.post(USER_LOGIN_URL, {email, password});
+    const data = new FormData();
+    data.append('email', email);
+    data.append('password', password);
+
+    const response = await axios.post(USER_LOGIN_URL, data, {
+      headers: {'Content-Type': 'multipart/form-data'},
+    });
     if (response?.status === 200) {
       const result = response?.data;
-      dispatch(setAuthUser(result?.user));
-      await setToken(result?.user?.session_key);
+      if (result.user) {
+        dispatch(setAuthUser(result?.user));
+        await setToken(result?.user?.session_key);
+      }
       SimpleToast.show(result?.message);
     } else {
       SimpleToast.show(response?.message?.toString());

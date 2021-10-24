@@ -6,6 +6,7 @@ export const fetchUser = createAsyncThunk(
   async (_, {dispatch}) => {
     dispatch(toggleLoading());
     const response = await api.get(FETCH_USER_URL);
+    console.log(response);
     return response.data;
   },
 );
@@ -33,6 +34,7 @@ export const authSlice = createSlice({
       state.token = action.payload?.session_key;
     },
     setTokenAction: (state, action) => {
+      console.log(action?.payload);
       state.token = action.payload;
     },
     toggleLoading: state => {
@@ -42,7 +44,8 @@ export const authSlice = createSlice({
   extraReducers: {
     // Add reducers for additional action types here, and handle loading state as needed
     [fetchUser.fulfilled]: (state, action) => {
-      state.user = action.payload?.data;
+      state.user = action.payload?.user;
+      state.token = action.payload?.session_key;
       state.loading = false;
     },
     [fetchUser.rejected]: (state, action) => {
