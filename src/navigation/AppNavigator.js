@@ -10,6 +10,7 @@ import Home from '../screens/Seller/Home';
 import Trade from '../screens/Seller/Trade';
 import OrderLIst from '../screens/Seller/OrderLIst';*/
 import Create from '../screens/Seller/Product/Create';
+import OrderDetail from '../screens/Seller/OrderDetail';
 
 const AppNavigator = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const AppNavigator = () => {
       })();
     }
   }, [dispatch, token]);
-  return <Create />;
+  return <OrderDetail />;
   //return token ? <DrawerNavigator /> : <AuthNavigator />;
 };
 
