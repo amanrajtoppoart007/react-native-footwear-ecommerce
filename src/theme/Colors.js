@@ -1,6 +1,7 @@
 export default {
   primary: '#000000',
   primaryLight: '#1BECCF',
+  pacificBlue: '#009DC4',
   textColor: '#CEA245',
   background: '#FBFBFB',
   secondary: '#CCA145',

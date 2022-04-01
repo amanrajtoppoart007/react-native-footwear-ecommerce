@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {getToken} from './storage';
 
-export const BASE_URL = 'https://webbooza.com/shueapp/api/';
+export const BASE_URL = 'http://webbooza.com/shueapp/api/';
 
 // auth
 export const USER_LOGIN_URL = BASE_URL + 'login';
