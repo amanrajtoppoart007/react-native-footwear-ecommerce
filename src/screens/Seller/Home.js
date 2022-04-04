@@ -42,7 +42,7 @@ function Home() {
   return (
     <SafeAreaView style={commonStyle.container}>
       <View style={commonStyle.wrapper}>
-        <View style={commonStyle.content}>
+        <View style={[commonStyle.content, commonStyle.bottomTabMargin]}>
           <NavBar />
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={commonStyle.paddingHorizontal(12)}>

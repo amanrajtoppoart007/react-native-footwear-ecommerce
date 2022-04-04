@@ -12,14 +12,15 @@ import AdBanner from '../../components/User/Home/AdBanner';
 import Heading from '../../components/User/Heading';
 import Header from '../../components/User/Header';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
+import commonStyle from '../../theme/Style';
 
 function Home() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={commonStyle.container}>
       <Header />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.content}>
+        <View style={commonStyle.wrapper}>
+          <View style={commonStyle.content}>
             <View style={styles.section}>
               <View style={styles.sliderSection}>
                 <AdBanner />

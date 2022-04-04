@@ -126,7 +126,7 @@ function Create() {
   return (
     <SafeAreaView style={commonStyle.container}>
       <View style={commonStyle.wrapper}>
-        <View style={commonStyle.content}>
+        <View style={[commonStyle.content, commonStyle.bottomTabMargin]}>
           <SimpleNavBar pageTitle={'Add Product'} />
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={commonStyle.paddingHorizontal(12)}>
@@ -207,7 +207,8 @@ function Create() {
                   <View>
                     <TextInput
                       placeholder={'Search Color'}
-                      style={styles.input}
+                      placeholderTextColor={Colors.grayText}
+                      style={[styles.input, styles.inputTextStyle]}
                     />
                   </View>
                 </View>
@@ -225,10 +226,14 @@ function Create() {
                 <View>
                   <View style={commonStyle.rowSpaceBetween}>
                     <View style={commonStyle.width('20%')}>
-                      <TextInput style={styles.input} />
+                      <TextInput
+                        style={[styles.input, styles.inputTextStyle]}
+                      />
                     </View>
                     <View style={commonStyle.width('50%')}>
-                      <TextInput style={styles.input} />
+                      <TextInput
+                        style={[styles.input, styles.inputTextStyle]}
+                      />
                     </View>
                     <View style={commonStyle.width('20%')}>
                       <TouchableOpacity style={styles.attributeBox}>
@@ -246,7 +251,7 @@ function Create() {
                     <Text style={styles.attributeTitle}>Unit Price</Text>
                   </View>
                   <View>
-                    <TextInput style={styles.input} />
+                    <TextInput style={[styles.input, styles.inputTextStyle]} />
                   </View>
                 </View>
               </Section>
@@ -287,6 +292,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderColor: Colors.border,
     overflow: 'hidden',
+  },
+  inputTextStyle: {
+    fontFamily: Font.PoppinsSemiBold,
+    fontSize: 12,
+    color: Colors.black,
   },
   attributeBox: {
     width: 80,

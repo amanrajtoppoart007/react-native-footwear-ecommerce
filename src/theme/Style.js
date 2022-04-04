@@ -19,6 +19,9 @@ const commonStyle = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  bottomTabMargin: {
+    marginBottom: 80,
+  },
   rowCenter: {
     flexDirection: 'row',
     justifyContent: 'center',
