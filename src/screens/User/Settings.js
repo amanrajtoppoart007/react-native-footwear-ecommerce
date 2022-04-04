@@ -13,8 +13,12 @@ import Header from '../../components/User/Header';
 import Font from '../../theme/Font';
 import {ListItem, Icon} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
+import {setAuthUser} from '../../slices/Auth.slice';
+import {useDispatch} from 'react-redux';
+import {removeToken, setToken} from '../../services/storage';
 
 function Settings() {
+  const dispatch = useDispatch();
   const menus = [
     {
       key: 'menu-item-one',
@@ -34,7 +38,10 @@ function Settings() {
 
   const navigation = useNavigation();
 
-  const logout = () => {};
+  const logout = async () => {
+    dispatch(setAuthUser(null));
+    await removeToken();
+  };
 
   const renderItem = ({item}) => (
     <ListItem

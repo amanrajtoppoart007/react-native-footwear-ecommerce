@@ -6,6 +6,7 @@ import Colors from '../../theme/Colors';
 import Font from '../../theme/Font';
 import Section from '../../components/Seller/Home/Section';
 import OrderCard from '../../components/Seller/Home/OrderCard';
+import NavBar from '../../components/Seller/NavBar';
 
 function Home() {
   const records = [
@@ -42,7 +43,7 @@ function Home() {
     <SafeAreaView style={commonStyle.container}>
       <View style={commonStyle.wrapper}>
         <View style={commonStyle.content}>
-          <SimpleNavBar pageTitle={'Dashboard'} />
+          <NavBar />
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={commonStyle.paddingHorizontal(12)}>
               <View style={commonStyle.marginVertical(8)}>
