@@ -13,7 +13,7 @@ import Font from '../../theme/Font';
 import Colors from '../../theme/Colors';
 import {Icon} from 'react-native-elements';
 
-function OrderLIst() {
+function OrderList() {
   const listing = [
     {
       orderNo: '#5345435',
@@ -261,4 +261,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OrderLIst;
+export default OrderList;

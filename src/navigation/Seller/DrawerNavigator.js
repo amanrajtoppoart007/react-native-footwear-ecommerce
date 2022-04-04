@@ -1,6 +1,6 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import SideBar from '../components/User/SideBar';
+import SideBar from '../../components/Seller/SideBar';
 import HomeNavigator from './HomeNavigator';
 
 const Drawer = createDrawerNavigator();

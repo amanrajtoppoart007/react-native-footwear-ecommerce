@@ -1,11 +1,11 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Seller from '../screens/User/Seller';
-import ProductList from '../screens/User/ProductList';
-import Product from '../screens/User/Product';
+import Seller from '../../screens/User/Seller';
+import ProductList from '../../screens/User/ProductList';
+import Product from '../../screens/User/Product';
 import TabNavigator from './TabNavigator';
-import Cart from '../screens/User/Cart';
-import OrderList from '../screens/User/OrderList';
+import Cart from '../../screens/User/Cart';
+import OrderList from '../../screens/User/OrderList';
 
 const Stack = createStackNavigator();
 

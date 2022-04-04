@@ -6,12 +6,11 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  ScrollView,
   StatusBar,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
 import Colors from '../../theme/Colors';
-import {Icon, Input} from 'react-native-elements';
+import {Icon} from 'react-native-elements';
 import Font from '../../theme/Font';
 import {useNavigation} from '@react-navigation/native';
 import SimpleToast from 'react-native-simple-toast';
@@ -24,14 +23,18 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import commonStyle from '../../theme/Style';
+import InputBox from '../../components/Shared/InputBox';
 
 function Login() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
 
   const handleLogin = async () => {
+    navigation.navigate('SellerSection');
+    return;
     if (!email?.length) {
       SimpleToast.show('Please enter valid email');
       return false;
@@ -62,94 +65,112 @@ function Login() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={commonStyle.container}>
       <StatusBar
         animated={true}
         backgroundColor={Colors.black}
         StatusBarStyle={'dark-content'}
       />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.content}>
-            <View style={styles.curveContainer}>
-              <View style={styles.curveUpperSection}>
-                <View style={styles.curveUpperSectionInner}>
-                  <Image
-                    style={styles.logo}
-                    source={require('../../assets/images/shue-app-logo.png')}
-                  />
-                </View>
-              </View>
-              <View style={styles.curveBottomSection}>
-                <Text style={styles.title}>Sign in</Text>
+      <View style={commonStyle.wrapper}>
+        <View style={commonStyle.content}>
+          <View style={styles.curveContainer}>
+            <View style={styles.curveUpperSection}>
+              <View style={styles.curveUpperSectionInner}>
+                <Image
+                  style={styles.logo}
+                  source={require('../../assets/images/shue-app-logo.png')}
+                />
               </View>
             </View>
+            <View style={styles.curveBottomSection}>
+              <Text style={styles.title}>Sign in</Text>
+            </View>
+          </View>
 
+          <View style={commonStyle.paddingHorizontal(20)}>
+            <View style={commonStyle.marginVertical(4)}>
+              <InputBox
+                placeholder={'email'}
+                value={email}
+                handleChange={setEmail}
+                leftIcon={
+                  <Icon
+                    type={'font-awesome'}
+                    name={'user-o'}
+                    color={'#6D6D6D'}
+                    size={20}
+                  />
+                }
+              />
+            </View>
+            <View style={commonStyle.marginVertical(4)}>
+              <InputBox
+                secureTextEntry={secureTextEntry}
+                placeholder={'Password'}
+                value={password}
+                handleChange={setPassword}
+                leftIcon={
+                  <Icon
+                    type={'antdesign'}
+                    name={'unlock'}
+                    color={'#6D6D6D'}
+                    size={20}
+                  />
+                }
+                rightIcon={
+                  <Icon
+                    type={'feather'}
+                    onPress={() => setSecureTextEntry(!secureTextEntry)}
+                    name={'eye'}
+                    color={'#626262'}
+                  />
+                }
+              />
+            </View>
+
+            <View style={commonStyle.paddingHorizontal(20)}>
+              <TouchableOpacity>
+                <Text style={styles.forgotPassword}>Forgot Password</Text>
+              </TouchableOpacity>
+            </View>
             <View>
-              <View>
-                <Input
-                  containerStyle={styles.containerStyle}
-                  inputStyle={styles.inputStyle}
-                  style={styles.inputBgColor}
-                  inputContainerStyle={styles.inputContainerStyle}
-                  placeholder="Username"
-                  leftIcon={{
-                    type: 'font-awesome',
-                    name: 'user-o',
-                    color: '#626262',
-                  }}
-                  onChangeText={text => setEmail(text)}
-                />
-              </View>
-              <View>
-                <Input
-                  containerStyle={styles.containerStyle}
-                  inputStyle={styles.inputStyle}
-                  inputContainerStyle={styles.inputContainerStyle}
-                  style={styles.inputBgColor}
-                  placeholder="Password"
-                  leftIcon={{
-                    type: 'antdesign',
-                    name: 'unlock',
-                    color: '#626262',
-                  }}
-                  rightIcon={() => (
-                    <Icon type={'feather'} name={'eye'} color={'#626262'} />
-                  )}
-                  onChangeText={text => setPassword(text)}
-                />
-              </View>
-              <View style={commonStyle.paddingHorizontal(20)}>
-                <TouchableOpacity>
-                  <Text style={styles.forgotPassword}>Forgot Password</Text>
+              <View style={styles.buttonSection}>
+                <TouchableOpacity
+                  onPress={() => handleLogin()}
+                  style={styles.loginButton}>
+                  <Text style={styles.loginButtonText}>Sign In</Text>
                 </TouchableOpacity>
               </View>
-              <View>
-                <View style={styles.buttonSection}>
-                  <TouchableOpacity
-                    onPress={() => handleLogin()}
-                    style={styles.loginButton}>
-                    <Text style={styles.loginButtonText}>Sign In</Text>
-                  </TouchableOpacity>
+              <View style={commonStyle.marginVertical(5)}>
+                <View style={commonStyle.rowCenter}>
+                  <View>
+                    <Text style={styles.membershipText}>Not a seller?</Text>
+                  </View>
+                  <View style={commonStyle.marginHorizontal(5)}>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('SellerRegister')}>
+                      <Text style={styles.registerText}>Sign Up</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                <View style={commonStyle.marginVertical(5)}>
-                  <View style={styles.membershipSection}>
-                    <View>
-                      <Text style={styles.membershipText}>Not a Member</Text>
-                    </View>
-                    <View style={commonStyle.marginHorizontal(5)}>
-                      <TouchableOpacity
-                        onPress={() => navigation.navigate('Register')}>
-                        <Text style={styles.registerText}>Sign Up</Text>
-                      </TouchableOpacity>
-                    </View>
+              </View>
+              <View style={commonStyle.marginVertical(5)}>
+                <View style={commonStyle.rowCenter}>
+                  <View>
+                    <Text style={styles.membershipText}>Login as a</Text>
+                  </View>
+                  <View style={commonStyle.marginHorizontal(5)}>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('Login')}>
+                      <Text style={styles.registerText}>User</Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
               </View>
             </View>
           </View>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
@@ -193,26 +214,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   containerStyle: {
-    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 3,
+    backgroundColor: 'red',
   },
   inputStyle: {
     fontFamily: Font.PoppinsRegular,
-    fontSize: 18,
+    fontSize: 20,
+    height: 60,
     color: Colors.primary,
-    backgroundColor: Colors.invertBackground,
+    backgroundColor: '#F5F5F5',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   inputContainerStyle: {
     width: widthPercentageToDP('90%'),
     height: 60,
-    backgroundColor: '#E7E4E4FF',
+    backgroundColor: '#F5F5F5',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
     paddingHorizontal: 5,
-    borderColor: '#E7E4E4FF',
+    borderColor: '#F5F5F5',
   },
   forgotPassword: {
     fontFamily: Font.PoppinsRegular,
@@ -255,7 +279,7 @@ const styles = StyleSheet.create({
   },
   registerText: {
     fontFamily: Font.PoppinsSemiBold,
-    fontSize: 24,
+    fontSize: 18,
     color: Colors.primary,
     fontWeight: 'bold',
   },

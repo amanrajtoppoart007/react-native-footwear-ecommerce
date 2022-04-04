@@ -2,14 +2,13 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
-import Shpping from '../screens/User/Home';
-import Profile from '../screens/User/Profile';
-import Settings from '../screens/User/Settings';
-import WishList from '../screens/User/WishList';
-import Search from '../screens/User/Search';
-import OrderList from '../screens/User/OrderList';
+import Settings from '../../screens/User/Settings';
+import WishList from '../../screens/User/WishList';
+import Search from '../../screens/User/Search';
+import OrderList from '../../screens/User/OrderList';
 
-import TabBar from '../components/User/TabBar';
+import TabBar from '../../components/User/TabBar';
+import Home from '../../screens/User/Home';
 
 function TabNavigator() {
   return (
